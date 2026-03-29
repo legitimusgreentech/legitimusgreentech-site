@@ -33,7 +33,6 @@ export default function ContatoPage() {
 
     setSending(true);
 
-    // Simula envio (integrar com API real depois)
     setTimeout(() => {
       setSending(false);
       toast.success("Mensagem enviada com sucesso!", {
@@ -46,31 +45,31 @@ export default function ContatoPage() {
 
   return (
     <section className="relative min-h-screen pt-16">
-      {/* Top gradient bar */}
-      <div className="absolute top-0 left-0 right-0 h-72 bg-gradient-to-br from-petrol via-petrol/90 to-coal -z-10" />
+      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-4rem)]">
+        {/* Lado esquerdo - info com fundo escuro */}
+        <div className="relative bg-gradient-to-br from-petrol via-petrol/95 to-coal px-6 lg:px-16 py-16 lg:py-24 flex flex-col justify-center">
+          {/* Decorative orb */}
+          <div
+            className="absolute bottom-0 left-0 w-64 h-64 opacity-10 pointer-events-none"
+            style={{
+              background: "radial-gradient(circle, var(--color-cyan) 0%, transparent 70%)",
+            }}
+          />
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-ice/50 hover:text-ice transition-colors mb-8"
-          >
-            <ArrowLeft size={14} />
-            Voltar ao início
-          </Link>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.5 }}
+            className="relative"
           >
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 text-sm text-ice/40 hover:text-ice transition-colors mb-10"
+            >
+              <ArrowLeft size={14} />
+              Voltar ao início
+            </Link>
+
             <div className="h-1 w-12 bg-lime rounded-full mb-8" />
             <h1 className="font-heading text-4xl lg:text-5xl font-bold text-ice leading-tight">
               Fale conosco
@@ -106,9 +105,7 @@ export default function ContatoPage() {
                   <p className="text-xs text-ice/40 uppercase tracking-wider font-semibold">
                     Telefone
                   </p>
-                  <span className="text-sm text-ice/80">
-                    Em breve
-                  </span>
+                  <span className="text-sm text-ice/80">Em breve</span>
                 </div>
               </div>
 
@@ -120,24 +117,26 @@ export default function ContatoPage() {
                   <p className="text-xs text-ice/40 uppercase tracking-wider font-semibold">
                     Localização
                   </p>
-                  <span className="text-sm text-ice/80">
-                    Brasil
-                  </span>
+                  <span className="text-sm text-ice/80">Brasil</span>
                 </div>
               </div>
             </div>
           </motion.div>
+        </div>
 
-          {/* Form */}
+        {/* Lado direito - formulário com fundo claro */}
+        <div className="bg-ice px-6 lg:px-16 py-16 lg:py-24 flex items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="w-full max-w-lg mx-auto"
           >
-            <form
-              onSubmit={handleSubmit}
-              className="space-y-5 bg-white rounded-2xl p-8 shadow-xl border border-coal/5"
-            >
+            <h2 className="font-heading text-2xl font-bold text-coal mb-8">
+              Envie sua mensagem
+            </h2>
+
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label
                   htmlFor="name"
@@ -149,7 +148,7 @@ export default function ContatoPage() {
                   type="text"
                   id="name"
                   name="name"
-                  className="w-full px-4 py-3 text-sm rounded-xl border border-coal/10 bg-ice/50 text-coal placeholder:text-coal/30 focus:outline-none focus:border-petrol focus:ring-2 focus:ring-petrol/20 transition-all"
+                  className="w-full px-4 py-3 text-sm rounded-xl border border-coal/10 bg-white text-coal placeholder:text-coal/30 focus:outline-none focus:border-petrol focus:ring-2 focus:ring-petrol/20 transition-all"
                   placeholder="Seu nome completo"
                 />
               </div>
@@ -165,7 +164,7 @@ export default function ContatoPage() {
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full px-4 py-3 text-sm rounded-xl border border-coal/10 bg-ice/50 text-coal placeholder:text-coal/30 focus:outline-none focus:border-petrol focus:ring-2 focus:ring-petrol/20 transition-all"
+                  className="w-full px-4 py-3 text-sm rounded-xl border border-coal/10 bg-white text-coal placeholder:text-coal/30 focus:outline-none focus:border-petrol focus:ring-2 focus:ring-petrol/20 transition-all"
                   placeholder="seu@email.com"
                 />
               </div>
@@ -181,7 +180,7 @@ export default function ContatoPage() {
                   type="text"
                   id="company"
                   name="company"
-                  className="w-full px-4 py-3 text-sm rounded-xl border border-coal/10 bg-ice/50 text-coal placeholder:text-coal/30 focus:outline-none focus:border-petrol focus:ring-2 focus:ring-petrol/20 transition-all"
+                  className="w-full px-4 py-3 text-sm rounded-xl border border-coal/10 bg-white text-coal placeholder:text-coal/30 focus:outline-none focus:border-petrol focus:ring-2 focus:ring-petrol/20 transition-all"
                   placeholder="Nome da empresa"
                 />
               </div>
@@ -196,7 +195,7 @@ export default function ContatoPage() {
                 <select
                   id="interest"
                   name="interest"
-                  className="w-full px-4 py-3 text-sm rounded-xl border border-coal/10 bg-ice/50 text-coal focus:outline-none focus:border-petrol focus:ring-2 focus:ring-petrol/20 transition-all"
+                  className="w-full px-4 py-3 text-sm rounded-xl border border-coal/10 bg-white text-coal focus:outline-none focus:border-petrol focus:ring-2 focus:ring-petrol/20 transition-all"
                 >
                   <option value="">Selecione um produto</option>
                   <option value="inventario-gee">Inventário de Emissões GEE</option>
@@ -218,7 +217,7 @@ export default function ContatoPage() {
                   id="message"
                   name="message"
                   rows={4}
-                  className="w-full px-4 py-3 text-sm rounded-xl border border-coal/10 bg-ice/50 text-coal placeholder:text-coal/30 focus:outline-none focus:border-petrol focus:ring-2 focus:ring-petrol/20 transition-all resize-none"
+                  className="w-full px-4 py-3 text-sm rounded-xl border border-coal/10 bg-white text-coal placeholder:text-coal/30 focus:outline-none focus:border-petrol focus:ring-2 focus:ring-petrol/20 transition-all resize-none"
                   placeholder="Conte-nos sobre sua necessidade"
                 />
               </div>
