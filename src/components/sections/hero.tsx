@@ -46,7 +46,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-ice leading-tight"
+              className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-ice leading-tight"
             >
               Estruturamos a{" "}
               <span className="text-lime">sustentabilidade</span>{" "}
@@ -67,11 +67,11 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="mt-10 flex flex-col sm:flex-row gap-4"
+              className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4"
             >
               <Link
                 href="/contato"
-                className="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold text-coal bg-lime rounded-full hover:bg-lime/80 transition-all duration-200 group"
+                className="inline-flex items-center justify-center px-8 py-4 text-base sm:text-sm font-semibold text-coal bg-lime rounded-full hover:bg-lime/80 active:bg-lime/70 transition-all duration-200 group min-h-[48px]"
               >
                 Fale com um especialista
                 <ArrowRight
@@ -81,7 +81,7 @@ export function Hero() {
               </Link>
               <Link
                 href="#produtos"
-                className="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold text-ice border border-ice/20 rounded-full hover:bg-ice/5 transition-all duration-200"
+                className="inline-flex items-center justify-center px-8 py-4 text-base sm:text-sm font-semibold text-ice border border-ice/20 rounded-full hover:bg-ice/5 active:bg-ice/10 transition-all duration-200 min-h-[48px]"
               >
                 Conheça nossos produtos
               </Link>

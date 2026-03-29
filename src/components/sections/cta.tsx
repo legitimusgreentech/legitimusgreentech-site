@@ -25,7 +25,7 @@ export function CTA() {
             />
 
             <div className="relative max-w-2xl">
-              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-ice leading-tight">
+              <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-ice leading-tight">
                 Pronto para estruturar a sustentabilidade do seu negócio?
               </h2>
               <p className="mt-4 text-lg text-ice/60 leading-relaxed">
@@ -33,10 +33,10 @@ export function CTA() {
                 tecnologia, método e inteligência de dados à gestão ambiental da
                 sua empresa.
               </p>
-              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Link
                   href="/contato"
-                  className="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold text-coal bg-lime rounded-full hover:bg-lime/80 transition-all duration-200 group"
+                  className="inline-flex items-center justify-center px-8 py-4 text-base sm:text-sm font-semibold text-coal bg-lime rounded-full hover:bg-lime/80 active:bg-lime/70 transition-all duration-200 group min-h-[48px]"
                 >
                   Fale com um especialista
                   <ArrowRight
@@ -48,7 +48,7 @@ export function CTA() {
                   href="https://legitimus.evoluto.com.br"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold text-ice border border-ice/20 rounded-full hover:bg-ice/5 transition-all duration-200"
+                  className="inline-flex items-center justify-center px-8 py-4 text-base sm:text-sm font-semibold text-ice border border-ice/20 rounded-full hover:bg-ice/5 active:bg-ice/10 transition-all duration-200 min-h-[48px]"
                 >
                   Acessar plataforma
                 </a>

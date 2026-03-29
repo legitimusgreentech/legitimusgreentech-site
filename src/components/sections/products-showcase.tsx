@@ -22,7 +22,7 @@ export function ProductsShowcase() {
               <span className="memphis-line bg-petrol rounded-full" />
               Nossos Produtos
             </span>
-            <h2 className="mt-4 font-heading text-3xl lg:text-4xl font-bold text-coal">
+            <h2 className="mt-4 font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-coal">
               Quatro pilares para estruturar sua sustentabilidade
             </h2>
             <p className="mt-4 text-lg text-coal/60 leading-relaxed">
@@ -39,7 +39,7 @@ export function ProductsShowcase() {
               <FadeIn key={product.key} delay={index * 0.1}>
                 <Link
                   href={product.href}
-                  className="group relative block p-8 lg:p-10 rounded-2xl bg-white border border-coal/5 hover:border-transparent transition-all duration-300 hover:shadow-xl hover:shadow-coal/8 overflow-hidden"
+                  className="group relative block p-6 sm:p-8 lg:p-10 rounded-2xl bg-white border border-coal/5 hover:border-transparent active:bg-coal/[.02] transition-all duration-300 hover:shadow-xl hover:shadow-coal/8 overflow-hidden min-h-[44px]"
                 >
                   {/* Color accent left bar */}
                   <div

@@ -49,7 +49,7 @@ export function ProductHero({ product }: ProductHeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="font-heading text-4xl lg:text-5xl font-bold text-ice leading-tight"
+            className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-ice leading-tight"
           >
             {product.name}
           </motion.h1>
@@ -71,7 +71,7 @@ export function ProductHero({ product }: ProductHeroProps) {
           >
             <Link
               href="/contato"
-              className="inline-flex items-center px-8 py-3.5 text-sm font-semibold text-coal rounded-full transition-all duration-200 group hover:opacity-80"
+              className="inline-flex items-center px-8 py-4 text-base sm:text-sm font-semibold text-coal rounded-full transition-all duration-200 group hover:opacity-80 active:opacity-70 min-h-[48px]"
               style={{ backgroundColor: product.color }}
             >
               Solicitar proposta

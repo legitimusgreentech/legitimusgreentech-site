@@ -34,17 +34,85 @@
   --font-data: var(--font-inter);
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* ===== MOBILE-FIRST FOUNDATIONS ===== */
+
+/* Smooth scrolling - respeita preferência do usuário */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
+/* Base body - mobile-first font size 16px mínimo */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+/* Safe area insets para notch/dynamic island */
+@supports (padding: env(safe-area-inset-top)) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* ===== TOUCH TARGETS - mínimo 44px (WCAG 2.2 / Apple HIG) ===== */
+button,
+a,
+[role="button"],
+input[type="submit"],
+select {
+  min-height: 44px;
+}
+
+/* Inputs com tamanho confortável para touch */
+input,
+textarea,
+select {
+  font-size: 16px; /* Previne zoom automático no iOS Safari */
+}
+
+/* ===== CROSS-BROWSER FIXES ===== */
+
+/* Tap highlight - iOS Safari */
+a, button {
+  -webkit-tap-highlight-color: rgba(193, 255, 114, 0.15);
+}
+
+/* Smooth momentum scrolling - iOS */
+.overflow-auto,
+.overflow-y-auto,
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent pull-to-refresh interferindo com scroll */
+html {
+  overscroll-behavior: none;
+}
+
+/* Fix para backdrop-blur em Safari */
+@supports (-webkit-backdrop-filter: blur(1px)) {
+  .backdrop-blur-lg {
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .backdrop-blur-md {
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .backdrop-blur-sm {
+    -webkit-backdrop-filter: blur(4px);
+  }
 }
 
 /* Selection color */
@@ -53,7 +121,19 @@ body {
   color: var(--color-coal);
 }
 
-/* Memphis decorative element */
+/* Focus visible - acessibilidade com teclado */
+:focus-visible {
+  outline: 2px solid var(--color-petrol);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Remove outline padrão para mouse/touch */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ===== DECORATIVE ELEMENTS ===== */
 .memphis-dot {
   width: 6px;
   height: 6px;
@@ -67,9 +147,29 @@ body {
   display: inline-block;
 }
 
-/* Gradient text utility */
+/* Gradient text utility - cross-browser */
 .text-gradient {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ===== RESPONSIVE TYPOGRAPHY SCALE ===== */
+/* Mobile-first: base sizes, larger on desktop */
+h1 { line-height: 1.15; }
+h2 { line-height: 1.2; }
+h3 { line-height: 1.3; }
+p { line-height: 1.6; max-width: 65ch; }
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

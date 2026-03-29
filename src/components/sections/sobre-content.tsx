@@ -92,7 +92,7 @@ export function SobreContent() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="font-heading text-4xl lg:text-5xl font-bold text-ice leading-tight"
+              className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-ice leading-tight"
             >
               Sobre a Legitimus{" "}
               <span className="text-lime">GreenTech</span>
@@ -162,7 +162,7 @@ export function SobreContent() {
                 <span className="memphis-line bg-petrol rounded-full" />
                 Nossos Valores
               </span>
-              <h2 className="mt-4 font-heading text-3xl lg:text-4xl font-bold text-coal">
+              <h2 className="mt-4 font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-coal">
                 O que nos guia
               </h2>
             </div>
@@ -220,7 +220,7 @@ export function SobreContent() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-coal">
+              <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-coal">
                 Nossa essência
               </h2>
             </div>

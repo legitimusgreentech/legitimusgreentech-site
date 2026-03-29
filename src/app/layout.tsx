@@ -25,7 +25,10 @@ const inter = Inter({
   display: "swap",
 });
 
+export { viewport } from "./viewport";
+
 export const metadata: Metadata = {
+  manifest: "/manifest.json",
   metadataBase: new URL("https://legitimus.greentech"),
   title: {
     default: "Legitimus GreenTech | Sustentabilidade com Inteligência e Tecnologia",
