@@ -58,7 +58,7 @@ export function SobreContent() {
     <>
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-center pt-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-petrol via-petrol/95 to-coal" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#124e6a] via-[#0e3f56] to-[#0a2e40]" />
         <div
           className="absolute top-0 right-0 w-1/2 h-full opacity-10"
           style={{
@@ -192,7 +192,7 @@ export function SobreContent() {
       </section>
 
       {/* Posicionamento */}
-      <section className="py-24 lg:py-32 bg-gradient-to-br from-petrol to-coal">
+      <section className="py-24 lg:py-32 bg-gradient-to-br from-[#124e6a] via-[#0e3f56] to-[#0a2e40]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center">

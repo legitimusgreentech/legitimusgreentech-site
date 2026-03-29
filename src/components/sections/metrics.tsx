@@ -39,7 +39,7 @@ function AnimatedNumber({ value, suffix }: { value: number; suffix: string }) {
 
 export function Metrics() {
   return (
-    <section className="py-20 lg:py-28 bg-gradient-to-br from-petrol via-coal to-coal">
+    <section className="py-20 lg:py-28 bg-gradient-to-br from-[#124e6a] via-[#0e3f56] to-[#0a2e40]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {metrics.map((metric) => (

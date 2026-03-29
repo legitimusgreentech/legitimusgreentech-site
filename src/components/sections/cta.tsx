@@ -9,7 +9,7 @@ export function CTA() {
     <section className="py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <FadeIn>
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-petrol via-petrol to-coal px-8 py-16 lg:px-16 lg:py-24">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#124e6a] via-[#0e3f56] to-[#0a2e40] px-8 py-16 lg:px-16 lg:py-24">
             {/* Decorative gradients */}
             <div
               className="absolute -top-24 -right-24 w-64 h-64 rounded-full opacity-20"

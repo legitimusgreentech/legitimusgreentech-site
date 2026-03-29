@@ -13,7 +13,7 @@ export function ProductHero({ product }: ProductHeroProps) {
   return (
     <section className="relative min-h-[70vh] flex items-center pt-16 overflow-hidden">
       {/* Background com gradiente do produto */}
-      <div className="absolute inset-0 bg-gradient-to-br from-petrol via-coal to-coal" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#124e6a] via-[#0e3f56] to-[#0a2e40]" />
       <div
         className="absolute top-0 right-0 w-1/2 h-full opacity-15"
         style={{

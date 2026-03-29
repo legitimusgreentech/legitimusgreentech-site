@@ -36,7 +36,7 @@ const differentials = [
 
 export function WhyLegitimus() {
   return (
-    <section className="py-24 lg:py-32 bg-gradient-to-br from-petrol via-petrol to-coal">
+    <section className="py-24 lg:py-32 bg-gradient-to-br from-[#124e6a] via-[#0e3f56] to-[#0a2e40]">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto">

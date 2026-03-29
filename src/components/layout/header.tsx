@@ -31,7 +31,7 @@ export function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-white/90 backdrop-blur-lg shadow-sm border-b border-petrol/5"
-          : "bg-gradient-to-r from-petrol via-petrol/95 to-coal"
+          : "bg-[#124e6a]"
       }`}
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -106,7 +106,7 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden fixed inset-0 top-16 bg-petrol/98 backdrop-blur-lg z-40 overflow-y-auto"
+            className="lg:hidden fixed inset-0 top-16 bg-[#124e6a]/98 backdrop-blur-lg z-40 overflow-y-auto"
           >
             <div className="px-6 py-8 space-y-1">
               {NAV_LINKS.map((link, index) => (

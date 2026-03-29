@@ -45,9 +45,9 @@ export function VideoPreview() {
 
           {/* Video placeholder */}
           <FadeIn delay={0.15}>
-            <div className="relative aspect-video rounded-2xl overflow-hidden bg-gradient-to-br from-petrol to-coal group cursor-pointer">
+            <div className="relative aspect-video rounded-2xl overflow-hidden bg-gradient-to-br from-[#124e6a] to-[#0a2e40] group cursor-pointer">
               {/* Placeholder image — substituir por thumbnail real */}
-              <div className="absolute inset-0 bg-gradient-to-br from-petrol/90 via-coal/80 to-coal flex items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#124e6a]/90 via-[#0e3f56]/80 to-[#0a2e40] flex items-center justify-center">
                 {/* Fake UI mockup no fundo */}
                 <div className="absolute inset-4 sm:inset-8 rounded-xl border border-ice/10 bg-ice/5 p-4">
                   <div className="flex items-center gap-2 mb-3">

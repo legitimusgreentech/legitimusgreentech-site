@@ -47,7 +47,7 @@ export default function ContatoPage() {
     <section className="relative min-h-screen pt-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-4rem)]">
         {/* Lado esquerdo - info com fundo escuro */}
-        <div className="relative bg-gradient-to-br from-petrol via-petrol/95 to-coal px-6 lg:px-16 py-16 lg:py-24 flex flex-col justify-center">
+        <div className="relative bg-gradient-to-br from-[#124e6a] via-[#0e3f56] to-[#0a2e40] px-6 lg:px-16 py-16 lg:py-24 flex flex-col justify-center">
           {/* Decorative orb */}
           <div
             className="absolute bottom-0 left-0 w-64 h-64 opacity-10 pointer-events-none"

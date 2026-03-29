@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-16">
       {/* Background com gradiente forte */}
-      <div className="absolute inset-0 bg-gradient-to-br from-petrol via-coal to-coal" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#124e6a] via-[#0e3f56] to-[#0a2e40]" />
 
       {/* Decorative orbs */}
       <motion.div
