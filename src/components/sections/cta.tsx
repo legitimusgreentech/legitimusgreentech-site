@@ -26,12 +26,10 @@ export function CTA() {
 
             <div className="relative max-w-2xl">
               <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-ice leading-tight">
-                Pronto para estruturar a sustentabilidade do seu negócio?
+                Vamos estruturar seu projeto?
               </h2>
               <p className="mt-4 text-lg text-ice/60 leading-relaxed">
-                Fale com nossos especialistas e descubra como integrar
-                tecnologia, método e inteligência de dados à gestão ambiental da
-                sua empresa.
+                Solicite uma proposta ou acesse a plataforma do cliente.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Link

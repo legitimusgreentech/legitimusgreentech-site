@@ -48,9 +48,9 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-ice leading-tight"
             >
-              Estruturamos a{" "}
-              <span className="text-lime">sustentabilidade</span>{" "}
-              com inteligência
+              Sua{" "}
+              <span className="text-lime">sustentabilidade</span>,{" "}
+              estruturada e mensurável
             </motion.h1>
 
             <motion.p
@@ -59,8 +59,8 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="mt-6 text-lg text-ice/60 leading-relaxed max-w-lg"
             >
-              Tecnologia, método e dados para integrar a sustentabilidade
-              às decisões do seu negócio.
+              Inventário de emissões, ESG, Lixo Zero e equipamentos ambientais.
+              Tudo via plataforma, com acompanhamento em tempo real.
             </motion.p>
 
             <motion.div

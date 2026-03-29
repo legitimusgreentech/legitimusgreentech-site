@@ -45,7 +45,7 @@ export function WhyLegitimus() {
               Por que a Legitimus
             </span>
             <h2 className="mt-4 font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-ice">
-              Estrutura que transforma sustentabilidade em decisão de negócio
+              Por que empresas nos escolhem
             </h2>
           </div>
         </FadeIn>

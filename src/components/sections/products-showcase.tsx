@@ -23,11 +23,10 @@ export function ProductsShowcase() {
               Nossos Produtos
             </span>
             <h2 className="mt-4 font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-coal">
-              Quatro pilares para estruturar sua sustentabilidade
+              O que fazemos
             </h2>
-            <p className="mt-4 text-lg text-coal/60 leading-relaxed">
-              Cada produto integra método, tecnologia e inteligência de dados
-              à gestão do seu negócio.
+            <p className="mt-4 text-lg text-coal/60 leading-relaxed mx-auto">
+              Quatro frentes. Uma plataforma. Resultado mensurável.
             </p>
           </div>
         </FadeIn>
