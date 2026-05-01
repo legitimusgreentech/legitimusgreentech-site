@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import { PRODUCTS } from "@/lib/constants";
 import { ProductHero } from "@/components/sections/product-hero";
-import { ProductBenefits } from "@/components/sections/product-benefits";
-import { CTA } from "@/components/sections/cta";
+import { LixoZeroContent } from "@/components/sections/lixo-zero-content";
 
 const product = PRODUCTS.find((p) => p.key === "lixo-zero")!;
 
 export const metadata: Metadata = {
   title: "Certificação Lixo Zero | Consultoria e Auditoria ILZB",
   description:
-    "Conduzimos programas de Certificação Lixo Zero como consultores e auditores credenciados pelo ILZB. Implementação completa da metodologia com gestão digital por etapas.",
+    "Credenciados pelo ILZB desde 2021. Realizamos diagnóstico, consultoria de implementação e auditoria para Certificação Lixo Zero em indústrias, comércios e eventos. +37 empresas atendidas.",
   keywords: [
     "certificação lixo zero",
     "lixo zero",
@@ -20,12 +19,20 @@ export const metadata: Metadata = {
     "gestão de resíduos",
     "resíduo zero",
     "programa lixo zero",
+    "desvio de aterro",
+    "ZWIA",
+    "Zero Waste International Alliance",
+    "rumo ao lixo zero",
+    "diagnóstico lixo zero",
+    "pré-auditoria lixo zero",
     "sustentabilidade resíduos",
+    "certificação ambiental",
+    "ODS sustentabilidade",
   ],
   openGraph: {
     title: "Certificação Lixo Zero | Legitimus GreenTech",
     description:
-      "Consultoria e auditoria credenciada ILZB para Certificação Lixo Zero.",
+      "Credenciados ILZB desde 2021. Diagnóstico, implementação e auditoria para Certificação Lixo Zero.",
   },
 };
 
@@ -33,8 +40,7 @@ export default function LixoZeroPage() {
   return (
     <>
       <ProductHero product={product} />
-      <ProductBenefits product={product} />
-      <CTA />
+      <LixoZeroContent />
     </>
   );
 }
