@@ -42,8 +42,8 @@ export const PRODUCTS: Product[] = [
     headline: "Seu inventário completo, do cálculo ao relatório",
     description:
       "Escopo 1, 2 e 3 com acompanhamento em tempo real via plataforma. Pontual ou recorrente.",
-    color: COLORS.limeGreen,
-    colorName: "lime",
+    color: COLORS.goldEarth,
+    colorName: "gold",
     href: "/inventario-gee",
     benefits: [
       "Escopo 1, 2 e 3 completo",
@@ -61,8 +61,8 @@ export const PRODUCTS: Product[] = [
     headline: "Diagnóstico, indicadores e governança integrados",
     description:
       "Da estruturação à implementação, com software e relatórios alinhados a GRI e SASB.",
-    color: COLORS.petrolBlue,
-    colorName: "petrol",
+    color: COLORS.leafGreen,
+    colorName: "leaf",
     href: "/esg",
     benefits: [
       "Diagnóstico personalizado",
@@ -80,8 +80,8 @@ export const PRODUCTS: Product[] = [
     headline: "Consultoria e auditoria credenciada ILZB",
     description:
       "Implementação completa da metodologia com gestão por etapas via plataforma digital.",
-    color: COLORS.leafGreen,
-    colorName: "leaf",
+    color: COLORS.petrolBlue,
+    colorName: "petrol",
     href: "/lixo-zero",
     benefits: [
       "Credenciados pelo ILZB",
@@ -94,19 +94,19 @@ export const PRODUCTS: Product[] = [
   },
   {
     key: "maquinas-equipamentos",
-    name: "Máquinas e Equipamentos",
-    shortName: "Máquinas",
+    name: "Equipamentos Ambientais",
+    shortName: "Equipamentos",
     headline: "Equipamentos que fecham o ciclo",
     description:
-      "Caixa separadora de água e óleo, composteira automatizada. Instalação e suporte técnico.",
-    color: COLORS.goldEarth,
-    colorName: "gold",
+      "Caixa separadora Eco Box e composteiras Topema. Instalação, suporte técnico e integração ao programa ambiental.",
+    color: COLORS.silver,
+    colorName: "silver",
     href: "/maquinas-equipamentos",
     benefits: [
-      "Caixa separadora de água e óleo",
-      "Composteira automatizada",
-      "Fabricantes reconhecidos",
-      "Instalação e suporte",
+      "Caixa separadora Eco Box (água e óleo)",
+      "Composteiras Terraform Kitchen (Topema)",
+      "Redução de 90% no volume de resíduos",
+      "Instalação e suporte técnico",
       "Integração ao programa ambiental",
     ],
     icon: "Cog",
@@ -119,6 +119,6 @@ export const NAV_LINKS = [
   { label: "Inventário GEE", href: "/inventario-gee" },
   { label: "ESG", href: "/esg" },
   { label: "Lixo Zero", href: "/lixo-zero" },
-  { label: "Máquinas", href: "/maquinas-equipamentos" },
+  { label: "Equipamentos", href: "/maquinas-equipamentos" },
   { label: "Contato", href: "/contato" },
 ] as const;

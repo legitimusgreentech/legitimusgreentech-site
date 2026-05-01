@@ -15,8 +15,8 @@ export default function Home() {
       <Hero />
       <ProductsShowcase />
       <WhyLegitimus />
-      <Metrics />
       <VideoPreview />
+      <Metrics />
       <Certifications />
       <AboutPreview />
       <ClientsLogos />
