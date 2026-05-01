@@ -20,14 +20,14 @@ const certLevels = [
     name: "Rumo ao Lixo Zero",
     range: "50% a 89%",
     description:
-      "Selo para empresas ou eventos que encaminham entre 50 e 89% dos seus resíduos corretamente. Inclui auditoria anual e renovação.",
+      "Selo para empresas ou eventos que encaminham entre 50 e 89% dos resíduos para reutilização, reciclagem ou compostagem. Inclui auditoria anual e renovação.",
     isTop: false,
   },
   {
     name: "Certificação Lixo Zero",
     range: "90% ou mais",
     description:
-      "A certificação mais alta, emitida somente para organizações que alcançam a meta de 90% ou mais de resíduos encaminhados corretamente. Atesta de fato a condição Lixo Zero.",
+      "A certificação plena, emitida somente para organizações que alcançam o mínimo de 90% dos resíduos encaminhados para reutilização, reciclagem ou compostagem — atestando de fato a condição Lixo Zero.",
     isTop: true,
   },
 ];
@@ -89,6 +89,7 @@ const sectors = [
 ];
 
 const benefits = [
+  "Empresas certificadas são mais preparadas para o futuro, reduzem custos e impactam positivamente o planeta",
   "Redução de custos operacionais com descarte e destinação de resíduos",
   "Fortalecimento da imagem institucional como referência em sustentabilidade",
   "Certificação específica para gestão de resíduos com critérios ESG",
@@ -142,7 +143,7 @@ export function LixoZeroContent() {
                   Metodologia
                 </span>
                 <h2 className="mt-4 font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-coal">
-                  O que é a Certificação Lixo Zero
+                  Transforme seu negócio com a Certificação Lixo Zero
                 </h2>
                 <p className="mt-5 text-base text-coal/60 leading-relaxed">
                   A Certificação Lixo Zero é um produto do{" "}
@@ -152,13 +153,15 @@ export function LixoZeroContent() {
                   estabelecimento ou evento.
                 </p>
                 <p className="mt-4 text-base text-coal/60 leading-relaxed">
-                  Seu principal objetivo: <strong className="text-coal/80">atestar a correta gestão de
-                  resíduos sólidos</strong> conforme a metodologia Lixo Zero — presente em mais de 20
-                  países e alinhada a <strong className="text-coal/80">15 dos 17 ODS da ONU</strong>.
+                  Seu principal objetivo: <strong className="text-coal/80">atestar que no mínimo 90% dos
+                  resíduos são encaminhados para reutilização, reciclagem ou compostagem</strong> — conforme
+                  metodologia presente em mais de 20 países, reconhecida pela{" "}
+                  <strong className="text-coal/80">ONU-Habitat em 20 cidades ao redor do mundo</strong> e alinhada
+                  a <strong className="text-coal/80">15 dos 17 ODS da ONU</strong>.
                 </p>
                 <p className="mt-4 text-base text-coal/60 leading-relaxed">
                   A certificação é aplicada somente em locais físicos onde acontece a gestão
-                  de resíduos. A Legitimus Ambiental é parceira e credenciada pelo ILZB desde
+                  de resíduos. A Legitimus GreenTech é credenciada pelo ILZB desde
                   2021, realizando auditorias, pré-auditorias e consultorias nos mais variados
                   segmentos.
                 </p>
@@ -176,7 +179,7 @@ export function LixoZeroContent() {
                   },
                   {
                     label: "Social",
-                    items: ["Menor produção de lixo", "Impacto na economia da reciclagem", "Satisfação dos consumidores", "Envolvimento de catadores e empreendedores"],
+                    items: ["Valorização de catadores e cooperativas", "Incentivos à economia circular", "Criação de empregos locais", "Satisfação dos consumidores"],
                     color: "#00c7fd",
                   },
                   {
@@ -457,11 +460,11 @@ export function LixoZeroContent() {
               className="h-1 bg-lime rounded-full mx-auto mb-8"
             />
             <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-ice">
-              Garanta que sua empresa esteja pronta para a certificação
+              Pronto para transformar seu negócio com a Certificação Lixo Zero?
             </h2>
             <p className="mt-4 text-base text-ice/60 max-w-xl mx-auto">
               Nossa pré-auditoria ajuda você a diagnosticar, corrigir e otimizar sua gestão de
-              resíduos antes da avaliação oficial do ILZB.
+              resíduos antes da avaliação oficial do ILZB — com método, rastreabilidade e suporte técnico completo.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
               <Link

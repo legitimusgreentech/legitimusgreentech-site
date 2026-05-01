@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, Droplets, Leaf, Zap, ShieldCheck } from "lucide-react";
+import { Check, ArrowRight, Droplets, Leaf, Zap, ShieldCheck, RefreshCw } from "lucide-react";
 import { FadeIn } from "@/components/animations/fade-in";
 
 const PRODUCT_COLOR = "var(--color-silver)";
@@ -39,21 +39,26 @@ const topemaLines = [
     name: "Linha TFK",
     subtitle: "Para pequenos volumes",
     capacity: "Modelos TFK 2 e TFK 5 (até 5 kg/ciclo)",
+    electrical: "Monofásico 127V / 220V",
     cycle: "6h a 12h",
     consumption: "0,12 kWh",
+    delivery: "7 a 20 dias úteis",
     use: "Restaurantes pequenos, escritórios, residências",
   },
   {
     name: "Linha ECO",
     subtitle: "Para operações industriais",
-    capacity: "Modelos ECO 30, 100, 120 e 300 (até 300 kg/ciclo)",
+    capacity: "ECO 30 (350–700 refeições/dia) · ECO 100 (1.200 refeições/dia) · ECO 120 · ECO 300",
+    electrical: "ECO 30: monofásico 220V · ECO 100/120: 220V / 380V trifásico",
     cycle: "6h a 22h",
     consumption: "1,9 a 8 kWh (por modelo)",
+    delivery: "7 a 20 dias úteis",
     use: "Indústrias, hotéis, hospitais, eventos, condomínios",
   },
 ];
 
 const topeamaBenefits = [
+  "100% produto brasileiro — fabricado e desenvolvido no Brasil",
   "Redução de até 90% do volume de resíduos orgânicos",
   "Geração de composto substrato rico em nutrientes",
   "Geração de até 60% em litros de água de reuso (Linha ECO)",
@@ -262,8 +267,10 @@ export function EquipamentosContent() {
                   <dl className="space-y-3">
                     {[
                       { dt: "Capacidade", dd: line.capacity },
+                      { dt: "Elétrico", dd: line.electrical },
                       { dt: "Ciclo", dd: line.cycle },
                       { dt: "Consumo", dd: line.consumption },
+                      { dt: "Entrega", dd: line.delivery },
                       { dt: "Indicado para", dd: line.use },
                     ].map((row) => (
                       <div key={row.dt} className="flex items-start gap-3">
@@ -278,6 +285,39 @@ export function EquipamentosContent() {
               </FadeIn>
             ))}
           </div>
+
+          {/* Locação Verde */}
+          <FadeIn>
+            <div className="mb-16 rounded-2xl border border-[#124e6a]/20 bg-gradient-to-r from-[#124e6a]/6 to-transparent p-8 flex flex-col md:flex-row items-start gap-6">
+              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#124e6a]/10 flex items-center justify-center">
+                <RefreshCw size={22} className="text-[#124e6a]" />
+              </div>
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-widest text-coal/40 mb-1">
+                  Modalidade exclusiva
+                </div>
+                <h3 className="font-heading text-xl font-bold text-coal mb-2">Locação Verde</h3>
+                <p className="text-sm text-coal/60 leading-relaxed max-w-2xl">
+                  Não é preciso comprar para transformar sua gestão de resíduos. Com a{" "}
+                  <strong className="text-coal/80">Locação Verde</strong>, sua empresa utiliza as
+                  composteiras Terraform Kitchen por assinatura — sem investimento inicial elevado,
+                  com manutenção e suporte técnico inclusos. Ideal para quem quer começar rápido ou
+                  validar a solução antes de adquirir.
+                </p>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {["Sem compra obrigatória", "Manutenção inclusa", "Suporte técnico", "Início imediato"].map((tag) => (
+                    <li
+                      key={tag}
+                      className="px-3 py-1 text-xs font-semibold rounded-full"
+                      style={{ backgroundColor: "#124e6a14", color: "#124e6a" }}
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </FadeIn>
 
           {/* Benefícios + Stats ECO 100 */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -313,6 +353,33 @@ export function EquipamentosContent() {
                 </div>
               </div>
             </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Impacto global acumulado */}
+      <section className="py-16 bg-ice border-y border-coal/5">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <FadeIn>
+            <p className="text-center text-xs font-semibold uppercase tracking-widest text-coal/30 mb-10">
+              Impacto acumulado pela tecnologia Terraform Kitchen no mundo
+            </p>
+          </FadeIn>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {[
+              { value: "275.618", label: "árvores preservadas" },
+              { value: "35.658 t", label: "CO₂ mitigadas" },
+              { value: "3,2 mi t", label: "composto gerado" },
+              { value: "21,6 mi L", label: "água preservada" },
+              { value: "1,4 mi", label: "sacos plásticos evitados" },
+            ].map((stat, i) => (
+              <FadeIn key={stat.label} delay={i * 0.07}>
+                <div className="text-center p-5 rounded-2xl bg-white border border-coal/5">
+                  <div className="font-data text-xl lg:text-2xl font-bold text-coal">{stat.value}</div>
+                  <div className="text-xs text-coal/40 mt-1 leading-snug">{stat.label}</div>
+                </div>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>

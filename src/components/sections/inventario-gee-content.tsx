@@ -45,15 +45,15 @@ const services = [
   {
     icon: Monitor,
     number: "02",
-    name: "Via Software Climo",
-    subtitle: "Plataforma digital de descarbonização",
+    name: "Software de Gestão de Emissões GEE e Descarbonização",
+    subtitle: "Plataforma Climo — gestão contínua",
     description:
-      "Inventário elaborado diretamente na plataforma Climo — solução digital integrada para medição, planejamento e acompanhamento da jornada de descarbonização. Interface simplificada com cálculos automáticos, dashboards e relatórios ESG.",
+      "Plataforma de gestão de emissões de GEE para empresas: organize seu inventário de carbono, defina metas de descarbonização e gere relatórios ESG. Elaboramos o inventário diretamente na Climo — cálculos automáticos, dashboards por escopo e acompanhamento contínuo da jornada.",
     deliverables: [
-      "Preenchimento e cálculo na plataforma Climo",
-      "Dashboard com emissões por escopo em tempo real",
-      "Relatórios alinhados a GRI, SASB e SBTi",
-      "Plano de metas e acompanhamento contínuo",
+      "Inventário de carbono organizado na plataforma",
+      "Definição de metas de descarbonização",
+      "Geração de relatórios ESG (GRI, SASB, SBTi)",
+      "Acompanhamento contínuo — não apenas pontual",
     ],
     note: "Ideal para empresas que querem gestão contínua, não pontual",
   },
@@ -97,6 +97,10 @@ const faqItems = [
   {
     q: "Como o Escopo 3 funciona na prática?",
     a: "As emissões dos seus fornecedores (Escopo 3 da sua empresa) devem fechar com o Escopo 1 do fornecedor. É um ciclo: o que um reporta como Escopo 3 é o Escopo 1 ou 2 de outro elo da cadeia.",
+  },
+  {
+    q: "O que é a plataforma Climo e como ela ajuda na gestão de emissões?",
+    a: "A Climo é um software de gestão de emissões GEE e descarbonização para empresas. Permite organizar o inventário de carbono, definir metas de descarbonização e gerar relatórios ESG em um único ambiente digital — substituindo planilhas e processos manuais por gestão contínua e rastreável.",
   },
 ];
 
