@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { PRODUCTS } from "@/lib/constants";
 import { ProductHero } from "@/components/sections/product-hero";
-import { ProductBenefits } from "@/components/sections/product-benefits";
-import { CTA } from "@/components/sections/cta";
+import { EquipamentosContent } from "@/components/sections/equipamentos-content";
 
 const product = PRODUCTS.find((p) => p.key === "maquinas-equipamentos")!;
 
@@ -35,8 +34,7 @@ export default function MaquinasEquipamentosPage() {
   return (
     <>
       <ProductHero product={product} />
-      <ProductBenefits product={product} />
-      <CTA />
+      <EquipamentosContent />
     </>
   );
 }
