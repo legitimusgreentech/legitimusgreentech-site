@@ -3,6 +3,7 @@ import { PRODUCTS } from "@/lib/constants";
 import { ProductHero } from "@/components/sections/product-hero";
 import { ProductBenefits } from "@/components/sections/product-benefits";
 import { CTA } from "@/components/sections/cta";
+import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 
 const product = PRODUCTS.find((p) => p.key === "esg")!;
 
@@ -27,11 +28,20 @@ export const metadata: Metadata = {
     description:
       "Diagnóstico, indicadores e governança ESG integrados à estratégia do seu negócio.",
   },
+  alternates: {
+    canonical: "https://legitimus.greentech/esg",
+  },
 };
 
 export default function ESGPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Início", href: "/" },
+          { name: "Agenda ESG", href: "/esg" },
+        ]}
+      />
       <ProductHero product={product} />
       <ProductBenefits product={product} />
       <CTA />

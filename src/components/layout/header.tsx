@@ -1,14 +1,26 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS, BRAND } from "@/lib/constants";
+import { usePathname } from "next/navigation";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+  const pathname = usePathname();
+
+  const activePageLink =
+    NAV_LINKS.find((l) =>
+      l.href === "/" ? pathname === "/" : pathname.startsWith(l.href)
+    )?.href ?? null;
+
+  const activeColor = scrolled ? "#124e6a" : "#c1ff72";
+  const hoverColor = scrolled ? "rgba(18,78,106,0.28)" : "rgba(255,255,255,0.28)";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -36,27 +48,17 @@ export function Header() {
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 sm:h-18 items-center justify-between">
-          {/* Logo placeholder */}
-          <Link href="/" className="flex items-center gap-2 sm:gap-3 min-h-[44px]">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-lime/20 border-2 border-lime/40 border-dashed flex items-center justify-center flex-shrink-0">
-              <span className="text-xs font-bold text-lime">L</span>
-            </div>
-            <div className="flex items-baseline gap-1">
-              <span
-                className={`font-heading text-lg sm:text-xl font-bold tracking-wide transition-colors ${
-                  scrolled ? "text-coal" : "text-ice"
-                }`}
-              >
-                Legitimus
-              </span>
-              <span
-                className={`font-sans text-[11px] sm:text-sm font-semibold tracking-wider uppercase transition-colors ${
-                  scrolled ? "text-sage" : "text-lime"
-                }`}
-              >
-                GreenTech
-              </span>
-            </div>
+          {/* Logo */}
+          <Link href="/" className="flex items-center min-h-[44px]">
+            <Image
+              src={scrolled ? "/logo-light.png" : "/logo-blue.png"}
+              alt="Legitimus GreenTech"
+              width={300}
+              height={80}
+              className="h-11 sm:h-12 w-auto transition-opacity duration-300"
+              style={{ width: "auto" }}
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}
@@ -65,13 +67,31 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors duration-200 py-2 min-h-[44px] flex items-center ${
+                onMouseEnter={() => setHoveredLink(link.href)}
+                onMouseLeave={() => setHoveredLink(null)}
+                className={`relative text-sm font-medium transition-colors duration-200 py-2 min-h-[44px] flex items-center ${
                   scrolled
                     ? "text-coal/70 hover:text-petrol"
                     : "text-ice/70 hover:text-ice"
                 }`}
               >
                 {link.label}
+                {activePageLink === link.href && (
+                  <motion.span
+                    layoutId="nav-underline-active"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 rounded-full"
+                    style={{ backgroundColor: activeColor }}
+                    transition={{ type: "spring", stiffness: 280, damping: 18 }}
+                  />
+                )}
+                {hoveredLink === link.href && hoveredLink !== activePageLink && (
+                  <motion.span
+                    layoutId="nav-underline-hover"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 rounded-full"
+                    style={{ backgroundColor: hoverColor }}
+                    transition={{ type: "spring", stiffness: 280, damping: 18 }}
+                  />
+                )}
               </Link>
             ))}
             <a

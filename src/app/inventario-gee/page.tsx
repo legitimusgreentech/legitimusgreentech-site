@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PRODUCTS } from "@/lib/constants";
 import { ProductHero } from "@/components/sections/product-hero";
 import { InventarioGeeContent } from "@/components/sections/inventario-gee-content";
+import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 
 const product = PRODUCTS.find((p) => p.key === "inventario-gee")!;
 
@@ -37,11 +38,20 @@ export const metadata: Metadata = {
     description:
       "GHG Protocol, Climo ou diagnóstico de fontes. Três formas de estruturar seu inventário de emissões com método e rastreabilidade.",
   },
+  alternates: {
+    canonical: "https://legitimus.greentech/inventario-gee",
+  },
 };
 
 export default function InventarioGeePage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Início", href: "/" },
+          { name: "Inventário de Emissões GEE", href: "/inventario-gee" },
+        ]}
+      />
       <ProductHero product={product} />
       <InventarioGeeContent />
     </>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, Building2, ShoppingBag, Globe, Factory } from "lucide-react";
+import { Check, ArrowRight, Building2, ShoppingBag, Globe, Factory, ShieldCheck } from "lucide-react";
 import { FadeIn } from "@/components/animations/fade-in";
 
 const PRODUCT_COLOR = "var(--color-petrol)";
@@ -129,6 +129,35 @@ export function LixoZeroContent() {
               </FadeIn>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Credenciamento ILZB */}
+      <section className="py-8 bg-[#124e6a]">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <FadeIn>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-center sm:text-left">
+              <div className="relative flex-shrink-0">
+                <div className="w-16 h-16 rounded-full border-2 border-lime/40 bg-lime/10 flex items-center justify-center">
+                  <ShieldCheck size={28} className="text-lime" />
+                </div>
+                <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-lime flex items-center justify-center">
+                  <Check size={11} className="text-coal font-bold" strokeWidth={3} />
+                </div>
+              </div>
+              <div>
+                <p className="text-[11px] font-bold uppercase tracking-widest text-lime mb-1">
+                  Empresa Credenciada desde 2021
+                </p>
+                <p className="text-lg sm:text-xl font-heading font-bold text-ice">
+                  Instituto Lixo Zero Brasil (ILZB)
+                </p>
+                <p className="text-sm text-ice/50 mt-1">
+                  Validado pela Zero Waste International Alliance · Auditorias e consultorias oficiais
+                </p>
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 

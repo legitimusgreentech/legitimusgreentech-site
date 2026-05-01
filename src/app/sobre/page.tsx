@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     "sustentabilidade empresarial",
     "quem somos",
   ],
+  alternates: {
+    canonical: "https://legitimus.greentech/sobre",
+  },
 };
 
 export default function SobrePage() {

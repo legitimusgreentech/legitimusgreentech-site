@@ -5,8 +5,9 @@ export function OrganizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Legitimus GreenTech",
-    alternateName: "Legitimus Green Tech",
+    alternateName: ["Legitimus Green Tech", "Legitimus Ambiental"],
     url: BRAND.url,
+    logo: `${BRAND.url}/logo-light.png`,
     description: BRAND.description,
     foundingDate: "2020",
     areaServed: {
@@ -21,13 +22,55 @@ export function OrganizationJsonLd() {
       "Sustentabilidade Empresarial",
       "Creditos de Carbono",
       "GHG Protocol",
+      "ISO 14064",
+      "GHG Protocol Brasil",
+      "Inventario GEE",
+      "Descarbonizacao",
+      "Instituto Lixo Zero Brasil",
     ],
     slogan: BRAND.tagline,
+    sameAs: [
+      "https://www.linkedin.com/company/legitimus-greentech",
+      "https://www.instagram.com/legitimus.greentech",
+    ],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
       email: "contato@legitimus.greentech",
       availableLanguage: "Portuguese",
+    },
+    hasCredential: [
+      {
+        "@type": "EducationalOccupationalCredential",
+        name: "Empresa Credenciada Instituto Lixo Zero Brasil",
+        dateCreated: "2021",
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+export function WebSiteJsonLd() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Legitimus GreenTech",
+    url: BRAND.url,
+    description: BRAND.description,
+    inLanguage: "pt-BR",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${BRAND.url}/?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
     },
   };
 

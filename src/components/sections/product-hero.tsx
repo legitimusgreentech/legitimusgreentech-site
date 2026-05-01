@@ -71,8 +71,8 @@ export function ProductHero({ product }: ProductHeroProps) {
           >
             <Link
               href="/contato"
-              className="inline-flex items-center px-8 py-4 text-base sm:text-sm font-semibold text-coal rounded-full transition-all duration-200 group hover:opacity-80 active:opacity-70 min-h-[48px]"
-              style={{ backgroundColor: product.color }}
+              className="inline-flex items-center px-8 py-4 text-base sm:text-sm font-semibold text-ice rounded-full transition-all duration-200 group hover:opacity-80 active:opacity-70 min-h-[48px] border"
+              style={{ backgroundColor: product.color, borderColor: "rgba(255,255,255,0.22)" }}
             >
               Solicitar proposta
               <ArrowRight

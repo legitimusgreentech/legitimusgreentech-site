@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PRODUCTS } from "@/lib/constants";
 import { ProductHero } from "@/components/sections/product-hero";
 import { EquipamentosContent } from "@/components/sections/equipamentos-content";
+import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 
 const product = PRODUCTS.find((p) => p.key === "maquinas-equipamentos")!;
 
@@ -28,11 +29,20 @@ export const metadata: Metadata = {
     description:
       "Caixa Separadora Eco Box e composteiras Topema. Equipamentos que fecham o ciclo da sustentabilidade empresarial.",
   },
+  alternates: {
+    canonical: "https://legitimus.greentech/maquinas-equipamentos",
+  },
 };
 
 export default function MaquinasEquipamentosPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Início", href: "/" },
+          { name: "Equipamentos Ambientais", href: "/maquinas-equipamentos" },
+        ]}
+      />
       <ProductHero product={product} />
       <EquipamentosContent />
     </>

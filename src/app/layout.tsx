@@ -4,7 +4,7 @@ import { Toaster } from "sonner";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { OrganizationJsonLd, ProductsJsonLd } from "@/components/seo/json-ld";
+import { OrganizationJsonLd, ProductsJsonLd, WebSiteJsonLd } from "@/components/seo/json-ld";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
@@ -63,6 +63,15 @@ export const metadata: Metadata = {
     "matriz de materialidade",
     "relatório sustentabilidade",
   ],
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: "/favicon.ico",
+  },
   authors: [{ name: "Legitimus GreenTech" }],
   creator: "Legitimus GreenTech",
   openGraph: {
@@ -104,6 +113,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <OrganizationJsonLd />
+        <WebSiteJsonLd />
         <ProductsJsonLd />
         <Header />
         <main className="flex-1">{children}</main>
