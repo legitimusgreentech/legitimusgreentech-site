@@ -9,7 +9,7 @@ const product = PRODUCTS.find((p) => p.key === "inventario-gee")!;
 export const metadata: Metadata = {
   title: "Inventário de Emissões de GEE | Software e Consultoria",
   description:
-    "Estruturamos seu inventário de gases de efeito estufa via GHG Protocol, software Climo ou diagnóstico de fontes. Escopo 1, 2 e 3, créditos de carbono e descarbonização com método e rastreabilidade.",
+    "Estruturamos seu inventário de gases de efeito estufa via GHG Protocol, software de emissões ou diagnóstico de fontes. Escopo 1, 2 e 3, créditos de carbono e descarbonização com método e rastreabilidade.",
   keywords: [
     "inventário de emissões",
     "inventário GEE",
@@ -18,14 +18,15 @@ export const metadata: Metadata = {
     "crédito de carbono",
     "GHG Protocol",
     "software emissões",
+    "software de emissões",
     "cálculo emissões atmosféricas",
     "consultoria emissões",
     "pegada de carbono",
     "descarbonização",
     "ISO 14064",
+    "ISO 14064-3",
     "SBTi",
     "metas SBTi",
-    "plataforma Climo",
     "diagnóstico de fontes GEE",
     "gestão carbono empresarial",
     "verificação inventário",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Inventário de Emissões GEE | Legitimus GreenTech",
     description:
-      "GHG Protocol, Climo ou diagnóstico de fontes. Três formas de estruturar seu inventário de emissões com método e rastreabilidade.",
+      "GHG Protocol, Software de Emissões ou diagnóstico de fontes. Três formas de estruturar seu inventário de emissões com método e rastreabilidade.",
   },
   alternates: {
     canonical: "https://legitimus.greentech/inventario-gee",

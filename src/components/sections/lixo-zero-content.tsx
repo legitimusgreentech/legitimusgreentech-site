@@ -9,9 +9,9 @@ const PRODUCT_COLOR = "var(--color-petrol)";
 const PRODUCT_COLOR_HEX = "#124e6a";
 
 const stats = [
-  { value: "+20", label: "Indústrias nacionais", icon: Factory },
-  { value: "+15", label: "Comércios nacionais", icon: ShoppingBag },
-  { value: "+2", label: "Indústrias internacionais", icon: Globe },
+  { value: "+30", label: "Indústrias nacionais", icon: Factory },
+  { value: "+20", label: "Comércios nacionais", icon: ShoppingBag },
+  { value: "+3", label: "Indústrias internacionais", icon: Globe },
   { value: "2021", label: "Credenciados pelo ILZB", icon: Building2 },
 ];
 
@@ -109,6 +109,11 @@ export function LixoZeroContent() {
       {/* Stats */}
       <section className="py-16 bg-white border-b border-coal/5">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <FadeIn>
+            <p className="text-center text-xs font-semibold uppercase tracking-widest text-coal/30 mb-8">
+              Nossas Validações
+            </p>
+          </FadeIn>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((s, i) => (
               <FadeIn key={s.label} delay={i * 0.08}>
@@ -161,15 +166,42 @@ export function LixoZeroContent() {
         </div>
       </section>
 
-      {/* O que é a certificação */}
-      <section className="py-24 lg:py-32 bg-ice">
+      {/* Navegação — Metodologias */}
+      <section className="py-6 bg-ice border-b border-coal/5">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <FadeIn>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <p className="text-[11px] font-bold uppercase tracking-widest text-coal/30 sm:mr-2">
+                Metodologias
+              </p>
+              <a
+                href="#metodologia-ilzb"
+                className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-[#7ab442]/30 bg-[#7ab442]/5 hover:bg-[#7ab442]/12 transition-all"
+              >
+                <ShieldCheck size={15} className="text-[#7ab442]" />
+                <span className="text-sm font-semibold text-coal/70">Metodologia ILZB</span>
+              </a>
+              <a
+                href="#metodologia-global-zero-waste"
+                className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-[#124e6a]/30 bg-[#124e6a]/5 hover:bg-[#124e6a]/12 transition-all"
+              >
+                <Globe size={15} className="text-[#124e6a]" />
+                <span className="text-sm font-semibold text-coal/70">Metodologia Global Zero Waste</span>
+              </a>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Metodologia ILZB */}
+      <section id="metodologia-ilzb" className="py-24 lg:py-32 bg-ice">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <FadeIn>
               <div>
                 <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-coal/40">
                   <span className="h-px w-8 rounded-full" style={{ backgroundColor: PRODUCT_COLOR }} />
-                  Metodologia
+                  Metodologia ILZB
                 </span>
                 <h2 className="mt-4 font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-coal">
                   Transforme seu negócio com a Certificação Lixo Zero
@@ -286,6 +318,55 @@ export function LixoZeroContent() {
                 </div>
               </FadeIn>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Metodologia Global Zero Waste */}
+      <section id="metodologia-global-zero-waste" className="py-24 lg:py-32 bg-ice">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <FadeIn>
+              <div>
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-coal/40">
+                  <span className="h-px w-8 bg-[#7ab442] rounded-full" />
+                  Metodologia Global Zero Waste
+                </span>
+                <h2 className="mt-4 font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-coal">
+                  Metodologia Global Zero Waste
+                </h2>
+                <p className="mt-5 text-base text-coal/60 leading-relaxed">
+                  {/* Conteúdo pendente — aguardando texto e assets do cliente (slide 15/16 do briefing v3) */}
+                  A Metodologia Global Zero Waste é desenvolvida pelo{" "}
+                  <strong className="text-coal/80">Sistema de Gestão Lixo Zero (SGLZ)</strong>{" "}
+                  e reconhecida internacionalmente pela{" "}
+                  <strong className="text-coal/80">Zero Waste International Alliance (ZWIA)</strong>.
+                </p>
+                <p className="mt-4 text-base text-coal/60 leading-relaxed">
+                  A Legitimus GreenTech atua como afiliada desta metodologia, habilitando empresas
+                  a alcançar certificações de padrão global em gestão de resíduos.
+                </p>
+                <a
+                  href="/contato"
+                  className="mt-8 inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-coal bg-lime rounded-full hover:bg-lime/80 transition-all"
+                >
+                  Saiba mais
+                  <ArrowRight size={15} />
+                </a>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.15}>
+              <div className="flex items-center justify-center">
+                {/* Logo Global Zero Waste — pendente (slide 13/17) */}
+                <div className="w-48 h-48 rounded-3xl border-2 border-dashed border-coal/15 flex flex-col items-center justify-center gap-3 text-coal/30">
+                  <Globe size={40} />
+                  <span className="text-xs font-medium text-center leading-snug">
+                    Logo Global Zero Waste<br/>a inserir
+                  </span>
+                </div>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -489,11 +570,11 @@ export function LixoZeroContent() {
               className="h-1 bg-lime rounded-full mx-auto mb-8"
             />
             <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-ice">
-              Pronto para transformar seu negócio com a Certificação Lixo Zero?
+              Pronto para transformar seu negócio com as certificações Lixo Zero?
             </h2>
             <p className="mt-4 text-base text-ice/60 max-w-xl mx-auto">
               Nossa pré-auditoria ajuda você a diagnosticar, corrigir e otimizar sua gestão de
-              resíduos antes da avaliação oficial do ILZB — com método, rastreabilidade e suporte técnico completo.
+              resíduos antes das avaliações — com método, rastreabilidade e suporte técnico completo.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
               <Link

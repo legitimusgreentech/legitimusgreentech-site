@@ -1,23 +1,16 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { FadeIn } from "@/components/animations/fade-in";
 
-const clients = [
-  { name: "Cliente 1", slug: "cliente-1" },
-  { name: "Cliente 2", slug: "cliente-2" },
-  { name: "Cliente 3", slug: "cliente-3" },
-  { name: "Cliente 4", slug: "cliente-4" },
-  { name: "Cliente 5", slug: "cliente-5" },
-  { name: "Cliente 6", slug: "cliente-6" },
-  { name: "Cliente 7", slug: "cliente-7" },
-  { name: "Cliente 8", slug: "cliente-8" },
-  { name: "Cliente 9", slug: "cliente-9" },
-  { name: "Cliente 10", slug: "cliente-10" },
-];
+const clients = [32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52].map((n) => ({
+  src: `/clients/${n}.jpg`,
+  alt: "Cliente certificado pela Legitimus GreenTech",
+}));
 
-const LOGO_WIDTH = 160;
+const LOGO_WIDTH = 200;
 const GAP = 24;
 const ITEM_TOTAL = LOGO_WIDTH + GAP;
 const SPEED = 0.15; // bem mais lento
@@ -114,12 +107,17 @@ export function ClientsLogos() {
           >
             {allLogos.map((client, i) => (
               <div
-                key={`${client.slug}-${i}`}
-                className="flex-shrink-0 w-40 h-16 flex items-center justify-center rounded-xl bg-white/60 border border-coal/5 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                key={`${client.src}-${i}`}
+                className="flex-shrink-0 w-[200px] h-20 flex items-center justify-center rounded-xl bg-white/60 border border-coal/5 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 px-4"
               >
-                <span className="text-sm font-semibold text-coal/50 select-none whitespace-nowrap">
-                  {client.name}
-                </span>
+                <Image
+                  src={client.src}
+                  alt={client.alt}
+                  width={160}
+                  height={64}
+                  className="object-contain max-h-14 w-auto select-none"
+                  draggable={false}
+                />
               </div>
             ))}
           </div>

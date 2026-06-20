@@ -17,12 +17,12 @@ const scopes = [
   {
     n: "2",
     title: "Escopo 2 — Energia",
-    desc: "Emissões indiretas provenientes do consumo de energia elétrica gerada externamente.",
+    desc: "Emissões indiretas provenientes da aquisição externa de energia, associada à produção dessa energia que é demandada pela empresa.",
   },
   {
     n: "3",
-    title: "Escopo 3 — Indiretas",
-    desc: "Demais emissões da cadeia de valor: fornecedores, logística terceirizada, resíduos, viagens a negócio, produtos vendidos.",
+    title: "Escopo 3 — Cadeia de Valor",
+    desc: "Demais emissões indiretas ao longo da cadeia de valor: fornecedores, logística terceirizada, resíduos, viagens a negócio, uso e descarte dos produtos vendidos — tudo que está além do controle direto mas é consequência da atividade da empresa.",
   },
 ];
 
@@ -33,7 +33,7 @@ const services = [
     name: "Via Ferramenta GHG Protocol",
     subtitle: "Metodologia tradicional",
     description:
-      "Elaboração do inventário com a ferramenta oficial do Programa Brasileiro GHG Protocol (FGV). Planilha de cálculo para emissões atmosféricas — combustíveis, energia, ar-condicionado — convertendo dados em toneladas de CO₂ equivalente.",
+      "Elaboração do inventário com a ferramenta oficial do Programa Brasileiro GHG Protocol (FGV). Planilha de cálculo para emissões atmosféricas — combustíveis, energia, ar-condicionado — convertendo dados em toneladas de CO₂ equivalente. Processo validável pela ISO 14064-3.",
     deliverables: [
       "Cálculo de Escopo 1, 2 e 3",
       "Inventário formatado para publicação no Registro Público de Emissões",
@@ -46,11 +46,11 @@ const services = [
     icon: Monitor,
     number: "02",
     name: "Software de Gestão de Emissões GEE e Descarbonização",
-    subtitle: "Plataforma Climo — gestão contínua",
+    subtitle: "Software de Emissões — gestão contínua",
     description:
-      "Plataforma de gestão de emissões de GEE para empresas: organize seu inventário de carbono, defina metas de descarbonização e gere relatórios ESG. Elaboramos o inventário diretamente na Climo — cálculos automáticos, dashboards por escopo e acompanhamento contínuo da jornada.",
+      "Software de gestão de emissões de GEE para empresas: organize seu inventário de carbono, defina metas de descarbonização e gere relatórios ESG. Elaboramos o inventário diretamente no software de emissões — cálculos automáticos, dashboards por escopo e acompanhamento contínuo da jornada.",
     deliverables: [
-      "Inventário de carbono organizado na plataforma",
+      "Inventário de carbono organizado no software",
       "Definição de metas de descarbonização",
       "Geração de relatórios ESG (GRI, SASB, SBTi)",
       "Acompanhamento contínuo — não apenas pontual",
@@ -75,16 +75,16 @@ const services = [
 ];
 
 const validationSteps = [
-  { label: "Elaboração", desc: "Consultoria elabora o inventário via GHG Protocol ou Climo" },
+  { label: "Elaboração", desc: "Consultoria e elaboração do inventário via GHG Protocol ou Software de Emissões" },
   { label: "Publicação", desc: "Publicação no Registro Público de Emissões da FGV (sem auditoria)" },
-  { label: "Validação", desc: "Organismo certificador audita rastreabilidade e veracidade" },
+  { label: "Validação", desc: "Organismo certificador audita rastreabilidade e veracidade conforme ISO 14064-3" },
   { label: "Certificação", desc: "Emissão do selo (Bronze, Prata ou Ouro)" },
 ];
 
 const faqItems = [
   {
     q: "Qual a diferença entre elaborar e auditar o inventário?",
-    a: "A Legitimus elabora o inventário de emissões. A auditoria é feita por organismos certificadores independentes (ISO 14064). Um consultor não pode auditar a mesma empresa que preparou — são funções separadas por norma.",
+    a: "A Legitimus elabora o inventário de emissões. A auditoria é feita por organismos certificadores independentes (ISO 14064-3). Um consultor não pode auditar a mesma empresa que preparou — são funções separadas por norma.",
   },
   {
     q: "O que é Net Zero e por que empresas são multadas por greenwashing?",
@@ -99,8 +99,8 @@ const faqItems = [
     a: "As emissões dos seus fornecedores (Escopo 3 da sua empresa) devem fechar com o Escopo 1 do fornecedor. É um ciclo: o que um reporta como Escopo 3 é o Escopo 1 ou 2 de outro elo da cadeia.",
   },
   {
-    q: "O que é a plataforma Climo e como ela ajuda na gestão de emissões?",
-    a: "A Climo é um software de gestão de emissões GEE e descarbonização para empresas. Permite organizar o inventário de carbono, definir metas de descarbonização e gerar relatórios ESG em um único ambiente digital — substituindo planilhas e processos manuais por gestão contínua e rastreável.",
+    q: "Qual a diferença entre usar GHG Protocol e um Software de Emissões?",
+    a: "O GHG Protocol usa a ferramenta oficial da FGV, indicada para inventários pontuais e publicação no Registro Público. O software de emissões oferece gestão contínua — dashboards por escopo, metas de descarbonização e geração de relatórios ESG em ambiente digital integrado. A escolha depende do estágio e necessidade da sua empresa.",
   },
 ];
 
@@ -150,7 +150,7 @@ export function InventarioGeeContent() {
                 Três formas de estruturar seu inventário
               </h2>
               <p className="mt-4 text-base text-coal/50">
-                Dependendo do estágio e necessidade da sua empresa, oferecemos abordagens distintas.
+                Dependendo do estágio e necessidade da sua empresa, oferecemos ferramentas específicas e personalizadas.
               </p>
             </div>
           </FadeIn>
@@ -296,9 +296,9 @@ export function InventarioGeeContent() {
             <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-coal">
               Pronto para estruturar seu inventário de emissões?
             </h2>
-            <p className="mt-4 text-base text-coal/60 max-w-xl mx-auto">
-              Fale com nossa equipe e descubra qual abordagem — GHG Protocol, Climo ou diagnóstico
-              de fontes — faz mais sentido para a realidade da sua empresa.
+            <p className="mt-4 text-base text-coal/60 max-w-2xl mx-auto">
+              Fale com nossa equipe e descubra qual abordagem — GHG Protocol, Software de Emissões ou Diagnóstico
+              de Fontes — faz mais sentido para a realidade da sua empresa.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
               <Link

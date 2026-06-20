@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contato | Fale com a Legitimus GreenTech",
   description:
-    "Entre em contato com a Legitimus GreenTech. Solicite uma proposta para inventário de emissões GEE, agenda ESG, certificação Lixo Zero ou equipamentos ambientais.",
+    "Entre em contato com a Legitimus GreenTech. Solicite uma proposta para inventário de emissões GEE, Certificação ESG, Certificação Lixo Zero ou equipamentos ambientais.",
   openGraph: {
     title: "Contato | Legitimus GreenTech",
     description:

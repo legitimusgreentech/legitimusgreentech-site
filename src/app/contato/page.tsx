@@ -2,13 +2,23 @@
 
 import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
-import { Mail, ArrowLeft, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
+import { Mail, ArrowLeft, Phone, MessageCircle, MapPin, Send, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { toast } from "sonner";
+import { BRAND } from "@/lib/constants";
+
+function formatPhone(value: string): string {
+  const d = value.replace(/\D/g, "").slice(0, 11);
+  if (d.length <= 2) return d.length ? `(${d}` : "";
+  if (d.length <= 6) return `(${d.slice(0, 2)}) ${d.slice(2)}`;
+  if (d.length <= 10) return `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`;
+  return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
+}
 
 export default function ContatoPage() {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [phone, setPhone] = useState("");
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -39,7 +49,7 @@ export default function ContatoPage() {
     formData.append("_captcha", "false");
     formData.append("_template", "table");
 
-    fetch("https://formsubmit.co/ajax/contato@legitimus.greentech", {
+    fetch(`https://formsubmit.co/ajax/${BRAND.email}`, {
       method: "POST",
       headers: { Accept: "application/json" },
       body: formData,
@@ -49,6 +59,7 @@ export default function ContatoPage() {
         if (res.success === "true" || res.success === true) {
           setSending(false);
           setSent(true);
+          setPhone("");
           toast.success("Mensagem enviada com sucesso!", {
             description: "Nosso time entrará em contato em breve.",
             icon: <CheckCircle2 size={18} className="text-leaf" />,
@@ -69,9 +80,8 @@ export default function ContatoPage() {
   return (
     <section className="relative min-h-screen pt-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-4rem)]">
-        {/* Lado esquerdo - info com fundo escuro */}
-        <div className="relative bg-gradient-to-br from-[#124e6a] via-[#0e3f56] to-[#0a2e40] px-6 lg:px-16 py-16 lg:py-24 flex flex-col justify-center">
-          {/* Decorative orb */}
+        {/* Lado esquerdo - info */}
+        <div className="relative bg-gradient-to-br from-[#124e6a] via-[#0e3f56] to-[#0a2e40] px-6 lg:px-16 py-10 lg:py-14 flex flex-col justify-center">
           <div
             className="absolute bottom-0 left-0 w-64 h-64 opacity-10 pointer-events-none"
             style={{
@@ -87,24 +97,26 @@ export default function ContatoPage() {
           >
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-sm text-ice/40 hover:text-ice transition-colors mb-10"
+              className="inline-flex items-center gap-2 text-sm text-ice/40 hover:text-ice transition-colors mb-5"
             >
               <ArrowLeft size={14} />
               Voltar ao início
             </Link>
 
-            <div className="h-1 w-12 bg-lime rounded-full mb-8" />
-            <h1 className="font-heading text-4xl lg:text-5xl font-bold text-ice leading-tight">
+            <div className="h-1 w-12 bg-lime rounded-full mb-5" />
+            <h1 className="font-heading text-3xl lg:text-4xl font-bold text-ice leading-tight">
               Fale conosco
             </h1>
-            <p className="mt-6 text-lg text-ice/60 leading-relaxed max-w-md">
-              Pronto para estruturar a sustentabilidade do seu negócio? Entre em
-              contato e descubra como podemos ajudar.
+            <p className="mt-4 text-base text-ice/60 leading-relaxed max-w-md">
+              Pronto para estruturar a sustentabilidade do seu negócio?
+            </p>
+            <p className="mt-1 text-base text-ice/60 leading-relaxed max-w-md">
+              Entre em contato e descubra como podemos ajudar.
             </p>
 
-            <div className="mt-12 space-y-6">
+            <div className="mt-7 space-y-4">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-ice/10 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-ice/10 flex items-center justify-center">
                   <Mail size={20} className="text-lime" />
                 </div>
                 <div>
@@ -112,28 +124,41 @@ export default function ContatoPage() {
                     E-mail
                   </p>
                   <a
-                    href="mailto:contato@legitimus.greentech"
+                    href={`mailto:${BRAND.email}`}
                     className="text-sm font-medium text-ice/80 hover:text-lime transition-colors"
                   >
-                    contato@legitimus.greentech
+                    {BRAND.email}
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-ice/10 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-ice/10 flex items-center justify-center">
+                  <MessageCircle size={20} className="text-lime" />
+                </div>
+                <div>
+                  <p className="text-xs text-ice/40 uppercase tracking-wider font-semibold">
+                    WhatsApp
+                  </p>
+                  <a
+                    href="https://wa.me/5511943824383"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium text-ice/80 hover:text-lime transition-colors block"
+                  >
+                    (11) 94382-4383
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-xl bg-ice/10 flex items-center justify-center">
                   <Phone size={20} className="text-lime" />
                 </div>
                 <div>
                   <p className="text-xs text-ice/40 uppercase tracking-wider font-semibold">
                     Telefone
                   </p>
-                  <a
-                    href="tel:+5511943824383"
-                    className="text-sm font-medium text-ice/80 hover:text-lime transition-colors block"
-                  >
-                    (11) 94382-4383
-                  </a>
                   <a
                     href="tel:+551143373025"
                     className="text-sm font-medium text-ice/80 hover:text-lime transition-colors block"
@@ -144,7 +169,7 @@ export default function ContatoPage() {
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-ice/10 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-ice/10 flex items-center justify-center">
                   <MapPin size={20} className="text-lime" />
                 </div>
                 <div>
@@ -159,7 +184,7 @@ export default function ContatoPage() {
         </div>
 
         {/* Lado direito - formulário */}
-        <div className="bg-ice px-6 lg:px-16 py-16 lg:py-24 flex items-center">
+        <div className="bg-ice px-6 lg:px-16 py-10 lg:py-14 flex items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -186,15 +211,15 @@ export default function ContatoPage() {
               </div>
             ) : (
               <>
-                <h2 className="font-heading text-2xl font-bold text-coal mb-8">
+                <h2 className="font-heading text-2xl font-bold text-coal mb-5">
                   Envie sua mensagem
                 </h2>
 
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-3" noValidate>
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-xs font-semibold uppercase tracking-wider text-coal/50 mb-2"
+                      className="block text-xs font-semibold uppercase tracking-wider text-coal/50 mb-1"
                     >
                       Nome *
                     </label>
@@ -203,7 +228,7 @@ export default function ContatoPage() {
                       id="name"
                       name="name"
                       required
-                      className="w-full px-4 py-3 text-sm rounded-xl border border-coal/10 bg-white text-coal placeholder:text-coal/30 focus:outline-none focus:border-petrol focus:ring-2 focus:ring-petrol/20 transition-all"
+                      className="w-full px-4 py-2.5 text-sm rounded-xl border border-coal/10 bg-white text-coal placeholder:text-coal/30 focus:outline-none focus:border-petrol focus:ring-1 focus:ring-petrol/20 transition-all"
                       placeholder="Seu nome completo"
                     />
                   </div>
@@ -211,7 +236,7 @@ export default function ContatoPage() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-xs font-semibold uppercase tracking-wider text-coal/50 mb-2"
+                      className="block text-xs font-semibold uppercase tracking-wider text-coal/50 mb-1"
                     >
                       E-mail *
                     </label>
@@ -220,7 +245,7 @@ export default function ContatoPage() {
                       id="email"
                       name="email"
                       required
-                      className="w-full px-4 py-3 text-sm rounded-xl border border-coal/10 bg-white text-coal placeholder:text-coal/30 focus:outline-none focus:border-petrol focus:ring-2 focus:ring-petrol/20 transition-all"
+                      className="w-full px-4 py-2.5 text-sm rounded-xl border border-coal/10 bg-white text-coal placeholder:text-coal/30 focus:outline-none focus:border-petrol focus:ring-1 focus:ring-petrol/20 transition-all"
                       placeholder="seu@email.com"
                     />
                   </div>
@@ -228,7 +253,7 @@ export default function ContatoPage() {
                   <div>
                     <label
                       htmlFor="company"
-                      className="block text-xs font-semibold uppercase tracking-wider text-coal/50 mb-2"
+                      className="block text-xs font-semibold uppercase tracking-wider text-coal/50 mb-1"
                     >
                       Empresa
                     </label>
@@ -236,15 +261,33 @@ export default function ContatoPage() {
                       type="text"
                       id="company"
                       name="company"
-                      className="w-full px-4 py-3 text-sm rounded-xl border border-coal/10 bg-white text-coal placeholder:text-coal/30 focus:outline-none focus:border-petrol focus:ring-2 focus:ring-petrol/20 transition-all"
+                      className="w-full px-4 py-2.5 text-sm rounded-xl border border-coal/10 bg-white text-coal placeholder:text-coal/30 focus:outline-none focus:border-petrol focus:ring-1 focus:ring-petrol/20 transition-all"
                       placeholder="Nome da empresa"
                     />
                   </div>
 
                   <div>
                     <label
+                      htmlFor="phone"
+                      className="block text-xs font-semibold uppercase tracking-wider text-coal/50 mb-1"
+                    >
+                      Telefone
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={phone}
+                      onChange={(e) => setPhone(formatPhone(e.target.value))}
+                      className="w-full px-4 py-2.5 text-sm rounded-xl border border-coal/10 bg-white text-coal placeholder:text-coal/30 focus:outline-none focus:border-petrol focus:ring-1 focus:ring-petrol/20 transition-all"
+                      placeholder="(11) 00000-0000"
+                    />
+                  </div>
+
+                  <div>
+                    <label
                       htmlFor="interest"
-                      className="block text-xs font-semibold uppercase tracking-wider text-coal/50 mb-2"
+                      className="block text-xs font-semibold uppercase tracking-wider text-coal/50 mb-1"
                     >
                       Interesse
                     </label>
@@ -255,7 +298,7 @@ export default function ContatoPage() {
                     >
                       <option value="">Selecione um produto</option>
                       <option value="inventario-gee">Inventário de Emissões GEE</option>
-                      <option value="esg">Agenda ESG</option>
+                      <option value="esg">Certificação ESG</option>
                       <option value="lixo-zero">Certificação Lixo Zero</option>
                       <option value="equipamentos">Equipamentos Ambientais</option>
                       <option value="outro">Outro assunto</option>
@@ -265,14 +308,14 @@ export default function ContatoPage() {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-xs font-semibold uppercase tracking-wider text-coal/50 mb-2"
+                      className="block text-xs font-semibold uppercase tracking-wider text-coal/50 mb-1"
                     >
                       Mensagem
                     </label>
                     <textarea
                       id="message"
                       name="message"
-                      rows={4}
+                      rows={3}
                       className="w-full px-4 py-3 text-sm rounded-xl border border-coal/10 bg-white text-coal placeholder:text-coal/30 focus:outline-none focus:border-petrol focus:ring-2 focus:ring-petrol/20 transition-all resize-none"
                       placeholder="Conte-nos sobre sua necessidade"
                     />

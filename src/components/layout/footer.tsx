@@ -21,8 +21,7 @@ export function Footer() {
               />
             </Link>
             <p className="mt-4 text-sm text-ice/50 leading-relaxed max-w-xs">
-              {BRAND.tagline}. Tecnologia, método e inteligência de dados para
-              a sustentabilidade empresarial.
+              {BRAND.tagline}
             </p>
           </div>
 
@@ -76,10 +75,10 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-ice/50">
               <li>
                 <a
-                  href="mailto:contato@legitimus.greentech"
+                  href={`mailto:${BRAND.email}`}
                   className="hover:text-lime transition-colors duration-200"
                 >
-                  contato@legitimus.greentech
+                  {BRAND.email}
                 </a>
               </li>
               <li>

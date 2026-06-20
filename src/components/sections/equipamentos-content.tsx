@@ -7,7 +7,6 @@ import { FadeIn } from "@/components/animations/fade-in";
 
 const PRODUCT_COLOR = "var(--color-silver)";
 const PRODUCT_COLOR_HEX = "#c0c0c0";
-const ACCENT_COLOR = "#1f2a33";
 
 const ecoBoxHighlights = [
   { icon: Droplets, label: "Remove 90 a 95% de óleos e gorduras" },
@@ -34,11 +33,11 @@ const ecoBoxSpecs = [
   { label: "Material", value: "Aço inox AISI 304" },
 ];
 
-const topemaLines = [
+const compostieraLines = [
   {
-    name: "Linha TFK",
+    name: "Linha Smart",
     subtitle: "Para pequenos volumes",
-    capacity: "Modelos TFK 2 e TFK 5 (até 5 kg/ciclo)",
+    capacity: "Modelos Smart 2 e Smart 5 (até 5 kg/ciclo)",
     electrical: "Monofásico 127V / 220V",
     cycle: "6h a 12h",
     consumption: "0,12 kWh",
@@ -57,7 +56,7 @@ const topemaLines = [
   },
 ];
 
-const topeamaBenefits = [
+const compostieiraBenefits = [
   "100% produto brasileiro — fabricado e desenvolvido no Brasil",
   "Redução de até 90% do volume de resíduos orgânicos",
   "Geração de composto substrato rico em nutrientes",
@@ -91,14 +90,26 @@ export function EquipamentosContent() {
               <h2 className="mt-4 font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-coal">
                 Equipamentos que fecham o ciclo da sustentabilidade
               </h2>
+              <p className="mt-2 text-base text-coal/40 font-medium">O ciclo da Sustentabilidade</p>
               <p className="mt-5 text-base text-coal/60 leading-relaxed">
-                A Legitimus comercializa e oferece suporte técnico para dois equipamentos
-                ambientais que complementam diretamente os programas de Lixo Zero e gestão
-                de resíduos: a <strong className="text-coal/80">Caixa Separadora Eco Box</strong> (para
-                tratamento de águas residuais) e as{" "}
-                <strong className="text-coal/80">Composteiras Terraform Kitchen</strong> da Topema
-                (para resíduos orgânicos).
+                A Legitimus oferece soluções ambientais inteligentes para impulsionar programas de
+                Lixo Zero, Aterro Zero e ESG, promovendo economia circular, redução de desperdícios,
+                diminuição dos impactos ambientais e mais eficiência operacional.
               </p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <a
+                  href="#eco-box"
+                  className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-coal bg-coal/8 rounded-full hover:bg-coal/15 transition-all duration-200"
+                >
+                  Separadora de Água e Óleo
+                </a>
+                <a
+                  href="#composteiras"
+                  className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-coal bg-coal/8 rounded-full hover:bg-coal/15 transition-all duration-200"
+                >
+                  Composteira Automatizada
+                </a>
+              </div>
             </div>
           </FadeIn>
         </div>
@@ -163,7 +174,7 @@ export function EquipamentosContent() {
                   <ul className="space-y-2">
                     {ecoBoxBenefits.map((b) => (
                       <li key={b} className="flex items-start gap-2 text-sm text-coal/60">
-                        <Check size={14} className="text-coal/30 flex-shrink-0 mt-0.5" />
+                        <Check size={14} className="text-leaf flex-shrink-0 mt-0.5" />
                         {b}
                       </li>
                     ))}
@@ -207,7 +218,7 @@ export function EquipamentosContent() {
       {/* Divisor */}
       <div className="h-px bg-coal/5 mx-auto max-w-7xl" />
 
-      {/* Produto 2 — Topema Terraform Kitchen */}
+      {/* Produto 2 — Composteira Automatizada */}
       <section id="composteiras" className="py-24 lg:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           {/* Header */}
@@ -218,10 +229,10 @@ export function EquipamentosContent() {
               </div>
               <div>
                 <p className="text-xs font-semibold uppercase tracking-widest text-coal/40 mb-1">
-                  Parceria Topema Innovations
+                  Composteira Automatizada
                 </p>
                 <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-coal">
-                  Composteiras Terraform Kitchen
+                  Composteira Automatizada
                 </h2>
                 <p className="mt-2 text-base text-coal/60">
                   Recicladoras elétricas de resíduos orgânicos — do resíduo ao composto em horas
@@ -259,7 +270,7 @@ export function EquipamentosContent() {
 
           {/* Linhas de produto */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-            {topemaLines.map((line, i) => (
+            {compostieraLines.map((line, i) => (
               <FadeIn key={line.name} delay={i * 0.1}>
                 <div className="p-8 rounded-2xl bg-ice border border-coal/5">
                   <h3 className="font-heading text-xl font-bold text-coal mb-1">{line.name}</h3>
@@ -298,9 +309,9 @@ export function EquipamentosContent() {
                 </div>
                 <h3 className="font-heading text-xl font-bold text-coal mb-2">Locação Verde</h3>
                 <p className="text-sm text-coal/60 leading-relaxed max-w-2xl">
-                  Não é preciso comprar para transformar sua gestão de resíduos. Com a{" "}
-                  <strong className="text-coal/80">Locação Verde</strong>, sua empresa utiliza as
-                  composteiras Terraform Kitchen por assinatura — sem investimento inicial elevado,
+                  Transforme sua gestão de resíduos com a{" "}
+                  <strong className="text-coal/80">Locação Verde</strong>. Sua empresa utiliza as
+                  composteiras por assinatura — sem investimento inicial elevado,
                   com manutenção e suporte técnico inclusos. Ideal para quem quer começar rápido ou
                   validar a solução antes de adquirir.
                 </p>
@@ -323,11 +334,11 @@ export function EquipamentosContent() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <FadeIn>
               <div>
-                <h3 className="font-sans text-base font-semibold text-coal mb-5">Por que Terraform Kitchen</h3>
+                <h3 className="font-sans text-base font-semibold text-coal mb-5">Por que adquirir a nossa Composteira</h3>
                 <ul className="space-y-3">
-                  {topeamaBenefits.map((b) => (
+                  {compostieiraBenefits.map((b) => (
                     <li key={b} className="flex items-start gap-3">
-                      <Check size={14} className="text-coal/30 flex-shrink-0 mt-0.5" />
+                      <Check size={14} className="text-leaf flex-shrink-0 mt-0.5" />
                       <span className="text-sm text-coal/70 leading-relaxed">{b}</span>
                     </li>
                   ))}
@@ -357,33 +368,6 @@ export function EquipamentosContent() {
         </div>
       </section>
 
-      {/* Impacto global acumulado */}
-      <section className="py-16 bg-ice border-y border-coal/5">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <FadeIn>
-            <p className="text-center text-xs font-semibold uppercase tracking-widest text-coal/30 mb-10">
-              Impacto acumulado pela tecnologia Terraform Kitchen no mundo
-            </p>
-          </FadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {[
-              { value: "275.618", label: "árvores preservadas" },
-              { value: "35.658 t", label: "CO₂ mitigadas" },
-              { value: "3,2 mi t", label: "composto gerado" },
-              { value: "21,6 mi L", label: "água preservada" },
-              { value: "1,4 mi", label: "sacos plásticos evitados" },
-            ].map((stat, i) => (
-              <FadeIn key={stat.label} delay={i * 0.07}>
-                <div className="text-center p-5 rounded-2xl bg-white border border-coal/5">
-                  <div className="font-data text-xl lg:text-2xl font-bold text-coal">{stat.value}</div>
-                  <div className="text-xs text-coal/40 mt-1 leading-snug">{stat.label}</div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="py-24 lg:py-32 bg-coal">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
@@ -396,11 +380,10 @@ export function EquipamentosContent() {
               className="h-1 bg-silver rounded-full mx-auto mb-8"
             />
             <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-ice">
-              Encontre o equipamento certo para o seu programa ambiental
+              Encontre os equipamentos ideais para sua operação
             </h2>
             <p className="mt-4 text-base text-ice/50 max-w-xl mx-auto">
-              Nossa equipe avalia sua operação e indica o modelo ideal de caixa separadora ou
-              composteira, com instalação e suporte técnico inclusos.
+              Nossa equipe avalia sua operação e indica o modelo ideal, com instalação e suporte técnico inclusos.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
               <Link

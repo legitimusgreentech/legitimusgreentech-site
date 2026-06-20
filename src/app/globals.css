@@ -173,3 +173,17 @@ p { line-height: 1.6; max-width: 65ch; }
     scroll-behavior: auto !important;
   }
 }
+
+/* Sonner — botão fechar sempre redondo */
+[data-sonner-toast] [data-close-button] {
+  width: 24px !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  min-height: 24px !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  aspect-ratio: 1 / 1 !important;
+}

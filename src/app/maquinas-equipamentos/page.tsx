@@ -9,25 +9,25 @@ const product = PRODUCTS.find((p) => p.key === "maquinas-equipamentos")!;
 export const metadata: Metadata = {
   title: "Equipamentos Ambientais | Caixa Separadora e Composteiras",
   description:
-    "Equipamentos ambientais que fecham o ciclo da sustentabilidade: Caixa Separadora Eco Box (água e óleo) e composteiras Terraform Kitchen Topema. Instalação e suporte técnico.",
+    "Equipamentos ambientais que fecham o ciclo da sustentabilidade: Caixa Separadora Eco Box (água e óleo) e Composteira Automatizada. Instalação e suporte técnico.",
   keywords: [
     "equipamentos ambientais",
     "caixa separadora água óleo",
     "caixa separadora eco box",
     "composteira automatizada",
     "composteira industrial",
-    "terraform kitchen",
-    "topema composteira",
     "reciclagem resíduos orgânicos",
     "gestão de resíduos equipamentos",
     "tratamento resíduos sólidos",
     "CONAMA 430",
     "lixo zero equipamentos",
+    "economia circular",
+    "resíduo orgânico",
   ],
   openGraph: {
     title: "Equipamentos Ambientais | Legitimus GreenTech",
     description:
-      "Caixa Separadora Eco Box e composteiras Topema. Equipamentos que fecham o ciclo da sustentabilidade empresarial.",
+      "Caixa Separadora Eco Box e Composteira Automatizada. Equipamentos que fecham o ciclo da sustentabilidade empresarial.",
   },
   alternates: {
     canonical: "https://legitimus.greentech/maquinas-equipamentos",
