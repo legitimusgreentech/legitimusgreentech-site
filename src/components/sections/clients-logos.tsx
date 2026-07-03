@@ -5,9 +5,32 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { FadeIn } from "@/components/animations/fade-in";
 
-const clients = [32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52].map((n) => ({
-  src: `/clients/${n}.jpg`,
-  alt: "Cliente certificado pela Legitimus GreenTech",
+const clients = [
+  { file: "scania", name: "Scania" },
+  { file: "volkswagen", name: "Volkswagen" },
+  { file: "givaudan", name: "Givaudan" },
+  { file: "mwm", name: "MWM" },
+  { file: "takasago", name: "Takasago" },
+  { file: "casacor", name: "CasaCor" },
+  { file: "ibema", name: "Ibema" },
+  { file: "irani", name: "Irani" },
+  { file: "lear-corporation", name: "Lear Corporation" },
+  { file: "fidens", name: "Fidens" },
+  { file: "ctg-brasil", name: "CTG Brasil" },
+  { file: "odata", name: "Odata" },
+  { file: "ftd-educacao", name: "FTD Educação" },
+  { file: "grupo-polar", name: "Grupo Polar" },
+  { file: "emibra", name: "Emibra" },
+  { file: "euro-ambiental", name: "Euro Ambiental" },
+  { file: "globo-fraft", name: "GloboKraft" },
+  { file: "diadema-embalagens", name: "Diadema Embalagens" },
+  { file: "b&f-dias", name: "B&F Dias" },
+  { file: "pacha", name: "Pacha" },
+  { file: "rock-the-mountain", name: "Rock the Mountain" },
+  { file: "shopping-metropole", name: "Shopping Metrópole" },
+].map((c) => ({
+  src: `/logos/${c.file}.jpg`,
+  alt: `${c.name} — cliente da Legitimus GreenTech`,
 }));
 
 const LOGO_WIDTH = 200;

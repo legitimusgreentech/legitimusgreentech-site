@@ -5,7 +5,7 @@ export const BRAND = {
     "Greentech que estrutura inventários de emissões, Certificação ESG, Certificação Lixo Zero e equipamentos ambientais com tecnologia e gestão via plataforma digital.",
   email: "contato@legitimusgreentech.com.br",
   url: "https://legitimus.greentech",
-  evolutoUrl: "https://legitimus.evoluto.com.br",
+  evolutoUrl: "https://legitimusgreentech.evolutto.com.br",
 } as const;
 
 export const COLORS = {
@@ -33,6 +33,7 @@ export interface Product {
   href: string;
   benefits: string[];
   icon: string;
+  cta: string;
 }
 
 export const PRODUCTS: Product[] = [
@@ -42,7 +43,7 @@ export const PRODUCTS: Product[] = [
     shortName: "Inventário GEE",
     headline: "Seja selo ouro no GHG Protocol",
     description:
-      "Elaboramos inventário completo via ferramenta ou software de emissões — Escopo 1, 2 e 3 com método, rastreabilidade e publicação no Registro Público.",
+      "Seja selo ouro no GHG. Elaboramos inventário completo via ferramenta ou software de emissões — Escopo 1, 2 e 3 com método, rastreabilidade e publicação no Registro Público.",
     color: COLORS.goldEarth,
     colorName: "gold",
     href: "/inventario-gee",
@@ -54,6 +55,7 @@ export const PRODUCTS: Product[] = [
       "Publicação no Registro Público de Emissões (FGV)",
     ],
     icon: "BarChart3",
+    cta: "Seja selo Ouro",
   },
   {
     key: "esg",
@@ -73,6 +75,7 @@ export const PRODUCTS: Product[] = [
       "Relatórios GRI e SASB",
     ],
     icon: "Shield",
+    cta: "Certifique-se",
   },
   {
     key: "lixo-zero",
@@ -92,6 +95,7 @@ export const PRODUCTS: Product[] = [
       "Referência nacional no setor",
     ],
     icon: "Recycle",
+    cta: "Certifique-se",
   },
   {
     key: "maquinas-equipamentos",
@@ -111,6 +115,7 @@ export const PRODUCTS: Product[] = [
       "Integração ao programa ambiental",
     ],
     icon: "Cog",
+    cta: "Adquira Já",
   },
 ];
 

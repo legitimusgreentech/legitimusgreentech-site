@@ -4,8 +4,8 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 const metrics = [
-  { value: 150, suffix: "+", label: "Projetos entregues" },
-  { value: 80, suffix: "+", label: "Empresas atendidas" },
+  { value: 100, suffix: "+", label: "Projetos entregues" },
+  { value: 60, suffix: "+", label: "Empresas atendidas" },
   { value: 4, suffix: "", label: "Produtos integrados" },
   { value: 98, suffix: "%", label: "Satisfação dos clientes" },
 ];

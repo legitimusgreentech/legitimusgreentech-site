@@ -114,7 +114,7 @@ export function SobreContent() {
       </section>
 
       {/* Missão e Visão */}
-      <section className="py-24 lg:py-32 bg-ice">
+      <section className="pt-24 lg:pt-32 pb-16 bg-ice">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <FadeIn>
@@ -154,7 +154,7 @@ export function SobreContent() {
       </section>
 
       {/* Valores */}
-      <section className="py-24 lg:py-32">
+      <section className="pt-16 pb-24 lg:pb-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-16">
@@ -247,8 +247,8 @@ export function SobreContent() {
                 icon: Award,
               },
             ].map((attr, index) => (
-              <FadeIn key={attr.title} delay={index * 0.1}>
-                <div className="text-center bg-white rounded-2xl p-10 border border-coal/5">
+              <FadeIn key={attr.title} delay={index * 0.1} className="h-full">
+                <div className="text-center bg-white rounded-2xl p-10 border border-coal/5 h-full">
                   <div
                     className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6"
                     style={{ backgroundColor: `${attr.color}12` }}

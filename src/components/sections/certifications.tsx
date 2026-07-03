@@ -1,7 +1,7 @@
 "use client";
 
 import { FadeIn } from "@/components/animations/fade-in";
-import { Award, ShieldCheck, BadgeCheck, FileCheck } from "lucide-react";
+import { Award, ShieldCheck, BadgeCheck } from "lucide-react";
 
 const certs = [
   {
@@ -13,19 +13,13 @@ const certs = [
   {
     icon: ShieldCheck,
     title: "Auditores de Organismos Certificadores",
-    description: "Auditoria reconhecida para verificação de inventários e sistemas",
+    description: "Elaboração de inventários com olhar técnico e rigor de auditoria",
     color: "var(--color-petrol)",
   },
   {
-    icon: FileCheck,
-    title: "GHG Protocol",
-    description: "Metodologia internacional para inventário de emissões de GEE",
-    color: "var(--color-lime)",
-  },
-  {
     icon: Award,
-    title: "ISO 14064",
-    description: "Norma internacional para quantificação e verificação de emissões",
+    title: "ISO 9001",
+    description: "Sistema de gestão da qualidade certificado, com processos auditados e rastreáveis",
     color: "var(--color-cyan)",
   },
 ];
@@ -40,10 +34,10 @@ export function Certifications() {
           </p>
         </FadeIn>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {certs.map((cert, index) => (
-            <FadeIn key={cert.title} delay={index * 0.08}>
-              <div className="flex items-start gap-4 p-5 rounded-xl border border-coal/5 hover:border-coal/10 transition-colors">
+            <FadeIn key={cert.title} delay={index * 0.08} className="h-full">
+              <div className="flex items-start gap-4 p-5 h-full rounded-xl border border-coal/5 hover:border-coal/10 transition-colors">
                 <div
                   className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
                   style={{ backgroundColor: `${cert.color}12` }}

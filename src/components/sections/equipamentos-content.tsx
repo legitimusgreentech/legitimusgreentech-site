@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, Droplets, Leaf, Zap, ShieldCheck, RefreshCw } from "lucide-react";
+import { Check, ArrowRight, Droplets, Leaf, Zap, ShieldCheck, RefreshCw, ImageOff } from "lucide-react";
 import { FadeIn } from "@/components/animations/fade-in";
 
 const PRODUCT_COLOR = "var(--color-silver)";
@@ -37,6 +38,7 @@ const compostieraLines = [
   {
     name: "Linha Smart",
     subtitle: "Para pequenos volumes",
+    img: "/equipamentos/linha-smart.png",
     capacity: "Modelos Smart 2 e Smart 5 (até 5 kg/ciclo)",
     electrical: "Monofásico 127V / 220V",
     cycle: "6h a 12h",
@@ -47,6 +49,7 @@ const compostieraLines = [
   {
     name: "Linha ECO",
     subtitle: "Para operações industriais",
+    img: "/equipamentos/composteira.png",
     capacity: "ECO 30 (350–700 refeições/dia) · ECO 100 (1.200 refeições/dia) · ECO 120 · ECO 300",
     electrical: "ECO 30: monofásico 220V · ECO 100/120: 220V / 380V trifásico",
     cycle: "6h a 22h",
@@ -183,8 +186,15 @@ export function EquipamentosContent() {
               </div>
             </FadeIn>
 
-            {/* Dados técnicos */}
+            {/* Imagem + Dados técnicos */}
             <FadeIn delay={0.15}>
+              <div className="space-y-6">
+              {/* PLACEHOLDER — falta imagem da Eco Box sem fundo (Canva). Slide 4/5 v3 */}
+              <div className="rounded-2xl border-2 border-dashed border-coal/20 bg-ice h-56 flex flex-col items-center justify-center gap-2 text-coal/40">
+                <ImageOff size={30} />
+                <span className="text-xs font-bold uppercase tracking-wider">NÃO TEM IMAGEM ECO BOX</span>
+                <span className="text-[10px] text-coal/30">(caixa sem fundo — Canva)</span>
+              </div>
               <div className="bg-ice rounded-2xl border border-coal/5 overflow-hidden">
                 <div className="px-6 py-5 border-b border-coal/5">
                   <h3 className="font-sans text-sm font-bold text-coal uppercase tracking-wider">
@@ -209,6 +219,7 @@ export function EquipamentosContent() {
                     Instituto Lixo Zero Brasil.
                   </p>
                 </div>
+              </div>
               </div>
             </FadeIn>
           </div>
@@ -272,7 +283,17 @@ export function EquipamentosContent() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
             {compostieraLines.map((line, i) => (
               <FadeIn key={line.name} delay={i * 0.1}>
-                <div className="p-8 rounded-2xl bg-ice border border-coal/5">
+                <div className="rounded-2xl bg-ice border border-coal/5 overflow-hidden h-full">
+                  <div className="relative h-56 bg-white border-b border-coal/5">
+                    <Image
+                      src={line.img}
+                      alt={`Composteira ${line.name}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 400px"
+                      className="object-contain p-4"
+                    />
+                  </div>
+                  <div className="p-8">
                   <h3 className="font-heading text-xl font-bold text-coal mb-1">{line.name}</h3>
                   <p className="text-xs text-coal/40 uppercase tracking-wider mb-5">{line.subtitle}</p>
                   <dl className="space-y-3">
@@ -292,6 +313,7 @@ export function EquipamentosContent() {
                       </div>
                     ))}
                   </dl>
+                  </div>
                 </div>
               </FadeIn>
             ))}
@@ -299,33 +321,44 @@ export function EquipamentosContent() {
 
           {/* Locação Verde */}
           <FadeIn>
-            <div className="mb-16 rounded-2xl border border-[#124e6a]/20 bg-gradient-to-r from-[#124e6a]/6 to-transparent p-8 flex flex-col md:flex-row items-start gap-6">
-              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#124e6a]/10 flex items-center justify-center">
-                <RefreshCw size={22} className="text-[#124e6a]" />
-              </div>
-              <div>
-                <div className="text-xs font-semibold uppercase tracking-widest text-coal/40 mb-1">
-                  Modalidade exclusiva
+            <div className="mb-16 rounded-2xl border border-[#124e6a]/20 bg-gradient-to-r from-[#124e6a]/6 to-transparent p-8 flex flex-col lg:flex-row items-center gap-8">
+              <div className="flex items-start gap-6 flex-1">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#124e6a]/10 flex items-center justify-center">
+                  <RefreshCw size={22} className="text-[#124e6a]" />
                 </div>
-                <h3 className="font-heading text-xl font-bold text-coal mb-2">Locação Verde</h3>
-                <p className="text-sm text-coal/60 leading-relaxed max-w-2xl">
-                  Transforme sua gestão de resíduos com a{" "}
-                  <strong className="text-coal/80">Locação Verde</strong>. Sua empresa utiliza as
-                  composteiras por assinatura — sem investimento inicial elevado,
-                  com manutenção e suporte técnico inclusos. Ideal para quem quer começar rápido ou
-                  validar a solução antes de adquirir.
-                </p>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {["Sem compra obrigatória", "Manutenção inclusa", "Suporte técnico", "Início imediato"].map((tag) => (
-                    <li
-                      key={tag}
-                      className="px-3 py-1 text-xs font-semibold rounded-full"
-                      style={{ backgroundColor: "#124e6a14", color: "#124e6a" }}
-                    >
-                      {tag}
-                    </li>
-                  ))}
-                </ul>
+                <div>
+                  <div className="text-xs font-semibold uppercase tracking-widest text-coal/40 mb-1">
+                    Modalidade exclusiva
+                  </div>
+                  <h3 className="font-heading text-xl font-bold text-coal mb-2">Locação Verde</h3>
+                  <p className="text-sm text-coal/60 leading-relaxed max-w-2xl">
+                    Transforme sua gestão de resíduos com a{" "}
+                    <strong className="text-coal/80">Locação Verde</strong>. Sua empresa utiliza as
+                    composteiras por assinatura — sem investimento inicial elevado,
+                    com manutenção e suporte técnico inclusos. Ideal para quem quer começar rápido ou
+                    validar a solução antes de adquirir.
+                  </p>
+                  <ul className="mt-4 flex flex-wrap gap-2">
+                    {["Sem compra obrigatória", "Manutenção inclusa", "Suporte técnico", "Início imediato"].map((tag) => (
+                      <li
+                        key={tag}
+                        className="px-3 py-1 text-xs font-semibold rounded-full"
+                        style={{ backgroundColor: "#124e6a14", color: "#124e6a" }}
+                      >
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="flex-shrink-0 w-full sm:w-80 lg:w-96">
+                <Image
+                  src="/equipamentos/locacao-verde.png"
+                  alt="Locação Verde — você loca, nós cuidamos: composteira por assinatura"
+                  width={1410}
+                  height={2000}
+                  className="w-full h-auto max-h-80 object-contain"
+                />
               </div>
             </div>
           </FadeIn>

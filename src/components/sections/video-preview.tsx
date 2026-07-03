@@ -16,30 +16,60 @@ export function VideoPreview() {
                 Como funciona
               </span>
               <h2 className="mt-4 font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-coal">
-                Veja na prática
+                Etapas do Projeto
               </h2>
               <p className="mt-4 text-base text-coal/60 leading-relaxed">
                 Entenda em poucos minutos como a plataforma organiza cada etapa
-                do seu projeto — do diagnóstico à entrega final.
+                do seu projeto.
               </p>
 
-              {/* 3 passos visuais */}
+              {/* 5 etapas do projeto */}
               <div className="mt-8 space-y-4">
                 {[
-                  { step: "01", text: "Diagnóstico e coleta de dados" },
-                  { step: "02", text: "Execução e acompanhamento via plataforma" },
-                  { step: "03", text: "Entrega com relatório e certificação" },
+                  {
+                    step: "01",
+                    title: "Acesso ao Portal do Cliente",
+                    text: "Receba acesso exclusivo à plataforma e acompanhe todas as informações em um único ambiente.",
+                  },
+                  {
+                    step: "02",
+                    title: "Planejamento e Estruturação do Projeto",
+                    text: "Definição do escopo, cronograma, responsáveis e etapas para uma execução organizada.",
+                  },
+                  {
+                    step: "03",
+                    title: "Execução e Acompanhamento Integrado",
+                    text: "Todas as atividades conduzidas e monitoradas diretamente pela plataforma.",
+                  },
+                  {
+                    step: "04",
+                    title: "Atualizações em Tempo Real",
+                    text: "Visualize status, avanços, pendências e indicadores do projeto em tempo real.",
+                  },
+                  {
+                    step: "05",
+                    title: "Relatórios Inteligentes e Entregas Automatizadas",
+                    text: "Documentos, indicadores e entregas programadas gerados de forma prática e centralizada.",
+                  },
                 ].map((item) => (
-                  <div key={item.step} className="flex items-center gap-4">
+                  <div key={item.step} className="flex items-start gap-4">
                     <span className="flex-shrink-0 w-10 h-10 rounded-lg bg-petrol/8 flex items-center justify-center text-xs font-bold text-petrol font-data">
                       {item.step}
                     </span>
-                    <span className="text-sm font-medium text-coal/70">
-                      {item.text}
-                    </span>
+                    <div>
+                      <p className="text-sm font-semibold text-coal">{item.title}</p>
+                      <p className="mt-0.5 text-sm text-coal/55 leading-relaxed">
+                        {item.text}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
+
+              <p className="mt-8 text-base font-medium text-coal/80 leading-relaxed border-l-2 border-lime pl-4">
+                Menos planilhas, menos trocas de e-mails, mais controle,
+                visibilidade e resultados em tempo real.
+              </p>
             </div>
           </FadeIn>
 

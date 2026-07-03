@@ -48,9 +48,9 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-ice leading-tight"
             >
-              Sua{" "}
-              <span className="text-lime">sustentabilidade</span>,{" "}
-              estruturada e mensurável
+              Sustentabilidade baseada em{" "}
+              <span className="text-lime">dados</span>{" "}
+              e gestão inteligente.
             </motion.h1>
 
             <motion.p

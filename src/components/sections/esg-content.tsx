@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import { Check, ArrowRight, BarChart2, ClipboardCheck, Settings, Layers, Users, Award } from "lucide-react";
 import { FadeIn } from "@/components/animations/fade-in";
 
@@ -76,7 +78,42 @@ const formats = [
   },
 ];
 
+// Telas reais do software ESG (prints da plataforma)
+const softwareShots = [
+  {
+    src: "/esg/login.jpg",
+    caption: "Acesso à plataforma",
+    alt: "Tela de login do software ESG da Legitimus GreenTech",
+    width: 1600,
+    height: 860,
+  },
+  {
+    src: "/esg/dashboard.jpg",
+    caption: "Dashboard ESG",
+    alt: "Dashboard do software ESG com indicadores Ambiental, Social e Governança e o nível de materialidade da empresa",
+    width: 1600,
+    height: 795,
+  },
+  {
+    src: "/esg/materialidade.jpg",
+    caption: "Questionário de Materialidade",
+    alt: "Tela de questionário de materialidade do software ESG, com critérios por pilar Ambiental, Social e Governança",
+    width: 1600,
+    height: 865,
+  },
+  {
+    src: "/esg/formularios.jpg",
+    caption: "Formulários por pilar",
+    alt: "Tela de formulários do software ESG com temas ambientais e status de preenchimento",
+    width: 1600,
+    height: 857,
+  },
+];
+
 export function EsgContent() {
+  const [activeShot, setActiveShot] = useState(0);
+  const shot = softwareShots[activeShot];
+
   return (
     <>
       {/* Intro */}
@@ -132,6 +169,91 @@ export function EsgContent() {
                   <p className="text-sm text-coal/55 leading-relaxed">{f.desc}</p>
                 </div>
               </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Software na prática */}
+      <section className="py-24 lg:py-32 bg-ice">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <FadeIn>
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-coal/40">
+                <span className="h-px w-8 rounded-full" style={{ backgroundColor: PRODUCT_COLOR }} />
+                O software na prática
+              </span>
+              <h2 className="mt-4 font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-coal">
+                Sua jornada ESG em um só lugar
+              </h2>
+              <p className="mt-4 text-base text-coal/60 leading-relaxed">
+                Diagnóstico de materialidade, formulários por pilar e evolução do nível de
+                maturidade — tudo centralizado, rastreável e sempre à mão.
+              </p>
+            </div>
+          </FadeIn>
+
+          {/* Tela principal — muda conforme a miniatura clicada */}
+          <FadeIn delay={0.1}>
+            <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden border border-coal/10 shadow-2xl shadow-coal/10 bg-white">
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-coal/5 bg-coal/[0.02]">
+                <span className="w-2.5 h-2.5 rounded-full bg-coal/15" />
+                <span className="w-2.5 h-2.5 rounded-full bg-coal/15" />
+                <span className="w-2.5 h-2.5 rounded-full bg-coal/15" />
+                <div className="ml-3 px-3 py-1 rounded-md bg-coal/[0.03] text-[11px] text-coal/40 font-medium">
+                  Plataforma ESG · {shot.caption}
+                </div>
+              </div>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={shot.src}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Image
+                    src={shot.src}
+                    alt={shot.alt}
+                    width={shot.width}
+                    height={shot.height}
+                    className="w-full h-auto"
+                  />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </FadeIn>
+
+          {/* Miniaturas navegáveis */}
+          <div className="mt-5 flex flex-wrap justify-center gap-3 sm:gap-4 max-w-5xl mx-auto">
+            {softwareShots.map((s, i) => (
+              <button
+                key={s.src}
+                type="button"
+                onClick={() => setActiveShot(i)}
+                aria-label={`Ver ${s.caption}`}
+                aria-pressed={i === activeShot}
+                className={`group rounded-xl overflow-hidden border-2 transition-all duration-200 w-32 sm:w-40 ${
+                  i === activeShot
+                    ? "border-lime shadow-lg shadow-coal/10 scale-[1.03]"
+                    : "border-coal/10 opacity-55 hover:opacity-100 hover:border-coal/25"
+                }`}
+              >
+                <Image
+                  src={s.src}
+                  alt=""
+                  width={s.width}
+                  height={s.height}
+                  className="w-full h-auto"
+                />
+                <span
+                  className={`block px-2 py-1.5 text-[10px] font-semibold text-center border-t border-coal/5 ${
+                    i === activeShot ? "text-coal bg-lime/10" : "text-coal/50 bg-white"
+                  }`}
+                >
+                  {s.caption}
+                </span>
+              </button>
             ))}
           </div>
         </div>

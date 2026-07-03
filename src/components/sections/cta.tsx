@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { FadeIn } from "@/components/animations/fade-in";
+import { BRAND } from "@/lib/constants";
 
 export function CTA() {
   return (
@@ -43,7 +44,7 @@ export function CTA() {
                   />
                 </Link>
                 <a
-                  href="https://legitimus.evoluto.com.br"
+                  href={BRAND.evolutoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-8 py-4 text-base sm:text-sm font-semibold text-ice border border-ice/20 rounded-full hover:bg-ice/5 active:bg-ice/10 transition-all duration-200 min-h-[48px]"

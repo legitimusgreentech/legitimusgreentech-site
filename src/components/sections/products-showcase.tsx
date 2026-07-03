@@ -26,7 +26,7 @@ export function ProductsShowcase() {
               O que fazemos
             </h2>
             <p className="mt-4 text-lg text-coal/60 leading-relaxed mx-auto">
-              Quatro frentes. Uma plataforma. Resultado mensurável.
+              Quatro frentes. Uma plataforma. Resultados mensuráveis.
             </p>
           </div>
         </FadeIn>
@@ -66,7 +66,7 @@ export function ProductsShowcase() {
                         className="mt-6 inline-flex items-center gap-2 text-sm font-semibold transition-colors"
                         style={{ color: product.color }}
                       >
-                        Saiba mais
+                        {product.cta}
                         <ArrowRight
                           size={14}
                           className="group-hover:translate-x-1 transition-transform"

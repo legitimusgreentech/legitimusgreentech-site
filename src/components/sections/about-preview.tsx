@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { FadeIn } from "@/components/animations/fade-in";
 
@@ -11,18 +12,15 @@ export function AboutPreview() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Imagem placeholder */}
           <FadeIn>
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-petrol/10 to-sage/10 border border-coal/5">
-              {/* Placeholder — substituir pela foto da equipe ou imagem institucional */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-20 h-20 rounded-2xl bg-petrol/10 flex items-center justify-center mx-auto mb-4">
-                    <span className="font-heading text-2xl font-bold text-petrol">L</span>
-                  </div>
-                  <p className="text-xs text-coal/30 font-medium uppercase tracking-wider">
-                    Foto da equipe
-                  </p>
-                </div>
-              </div>
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-[#16577a] via-[#124e6a] to-[#0f4258] border border-white/5 flex items-center justify-center p-12">
+              {/* Logo temporária até a foto do time (slide 8 v2) */}
+              <Image
+                src="/logo-blue.png"
+                alt="Legitimus GreenTech"
+                width={400}
+                height={120}
+                className="w-auto max-h-24 object-contain"
+              />
             </div>
           </FadeIn>
 
@@ -55,6 +53,17 @@ export function AboutPreview() {
                     </p>
                   </div>
                 ))}
+              </div>
+
+              <div className="mt-4 bg-ice rounded-xl p-5 border border-coal/5">
+                <p className="text-xs font-semibold uppercase tracking-wider text-petrol">
+                  Sustentabilidade com Propósito
+                </p>
+                <p className="mt-1.5 text-sm text-coal/60 leading-relaxed">
+                  Atuamos com responsabilidade ambiental e visão de longo prazo,
+                  desenvolvendo soluções que unem eficiência operacional, impacto
+                  positivo e compromisso com a transformação sustentável dos negócios.
+                </p>
               </div>
 
               <Link
