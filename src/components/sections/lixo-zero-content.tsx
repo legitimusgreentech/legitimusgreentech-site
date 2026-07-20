@@ -133,13 +133,14 @@ const benefits = [
   "Menor produção de lixo e impacto direto na economia da reciclagem",
 ];
 
-// Somente empresas certificadas (slide 14 — ajustes finais). Mapfre: aguardando logo.
+// Somente empresas certificadas (slide 14 — ajustes finais).
 const certifiedClients = [
   { file: "globokraft", name: "GloboKraft" },
   { file: "grupo-polar", name: "Grupo Polar" },
   { file: "scania", name: "Scania" },
   { file: "emibra", name: "Emibra" },
   { file: "mwm", name: "MWM" },
+  { file: "mapfre", name: "Mapfre" },
   { file: "givaudan", name: "Givaudan" },
   { file: "casacor", name: "CasaCor" },
   { file: "ibema", name: "Ibema" },

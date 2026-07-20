@@ -10,6 +10,7 @@ const clients = [
   { file: "volkswagen", name: "Volkswagen" },
   { file: "givaudan", name: "Givaudan" },
   { file: "mwm", name: "MWM" },
+  { file: "mapfre", name: "Mapfre" },
   { file: "takasago", name: "Takasago" },
   { file: "casacor", name: "CasaCor" },
   { file: "ibema", name: "Ibema" },
