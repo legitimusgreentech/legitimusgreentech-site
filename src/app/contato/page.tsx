@@ -44,19 +44,21 @@ export default function ContatoPage() {
 
     setSending(true);
 
-    const formData = new FormData(form);
-    formData.append("_subject", `Contato via site — ${name}`);
-    formData.append("_captcha", "false");
-    formData.append("_template", "table");
-
-    fetch(`https://formsubmit.co/ajax/${BRAND.email}`, {
+    fetch("/api/contact", {
       method: "POST",
-      headers: { Accept: "application/json" },
-      body: formData,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        email,
+        company: data.get("company"),
+        phone: data.get("phone"),
+        interest: data.get("interest"),
+        message: data.get("message"),
+      }),
     })
       .then((res) => res.json())
       .then((res) => {
-        if (res.success === "true" || res.success === true) {
+        if (res.success) {
           setSending(false);
           setSent(true);
           setPhone("");
@@ -66,7 +68,7 @@ export default function ContatoPage() {
           });
           form.reset();
         } else {
-          throw new Error("Falha no envio");
+          throw new Error(res.error || "Falha no envio");
         }
       })
       .catch(() => {
