@@ -89,11 +89,16 @@ export async function POST(request: Request) {
     });
 
     if (error) {
-      return NextResponse.json({ success: false, error: "Falha no envio." }, { status: 502 });
+      console.error("Resend send error:", error);
+      return NextResponse.json(
+        { success: false, error: error.message || "Falha no envio." },
+        { status: 502 },
+      );
     }
 
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (err) {
+    console.error("Contact route error:", err);
     return NextResponse.json({ success: false, error: "Erro ao enviar a mensagem." }, { status: 500 });
   }
 }
