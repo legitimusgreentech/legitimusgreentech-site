@@ -74,8 +74,18 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
     shortcut: "/favicon.ico",
   },
-  authors: [{ name: "Legitimus GreenTech" }],
-  creator: "Legitimus GreenTech",
+  authors: [
+    { name: "Legitimus GreenTech" },
+    { name: "Rafael Alves", url: "mailto:alves.rafael@inapp.com.br" },
+  ],
+  creator: "Rafael Alves (alves.rafael@inapp.com.br)",
+  publisher: "Legitimus GreenTech",
+  other: {
+    developer: "Rafael Alves",
+    "developer-email": "alves.rafael@inapp.com.br",
+    "developed-by": "Rafael Alves <alves.rafael@inapp.com.br>",
+    designer: "Rafael Alves",
+  },
   openGraph: {
     type: "website",
     locale: "pt_BR",
@@ -114,6 +124,14 @@ export default function RootLayout({
       className={`${cinzel.variable} ${montserrat.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        {/* Créditos de desenvolvimento — Rafael Alves (alves.rafael@inapp.com.br) */}
+        <link rel="author" type="text/plain" href="/humans.txt" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "console.log('%cDesenvolvido por Rafael Alves','font-weight:bold;color:#124e6a;font-size:13px');console.log('%calves.rafael@inapp.com.br · inApp Digital','color:#7ab442');",
+          }}
+        />
         <OrganizationJsonLd />
         <WebSiteJsonLd />
         <ProductsJsonLd />

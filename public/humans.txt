@@ -1,0 +1,17 @@
+/* DESENVOLVIMENTO */
+
+    Desenvolvido por: Rafael Alves
+    Contato: alves.rafael@inapp.com.br
+    Agência: inApp Digital
+
+
+/* SITE */
+
+    Cliente: Legitimus GreenTech
+    Stack: Next.js, TypeScript, Tailwind CSS, Framer Motion
+    Hospedagem: Vercel
+
+
+                                          _
+     Desenvolvido por Rafael Alves       | |
+     alves.rafael@inapp.com.br           |_|

@@ -138,6 +138,17 @@ export function Footer() {
             ))}
           </div>
         </div>
+
+        {/* Crédito de desenvolvimento */}
+        <p className="mt-6 text-center text-[11px] text-ice/25">
+          Desenvolvido por{" "}
+          <a
+            href="mailto:alves.rafael@inapp.com.br"
+            className="text-ice/40 hover:text-lime transition-colors"
+          >
+            Rafael Alves
+          </a>
+        </p>
       </div>
     </footer>
   );
