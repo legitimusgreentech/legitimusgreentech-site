@@ -55,28 +55,73 @@ export async function POST(request: Request) {
 
   const interest = INTEREST_LABELS[interestRaw] || interestRaw || "—";
 
-  const rows = [
-    ["Nome", name],
-    ["E-mail", email],
-    ["Empresa", company || "—"],
-    ["Telefone", phone || "—"],
-    ["Interesse", interest],
-    ["Mensagem", message || "—"],
-  ]
-    .map(
-      ([label, value]) =>
-        `<tr>` +
-        `<td style="padding:8px 12px;font-weight:600;color:#124e6a;border-bottom:1px solid #eee;vertical-align:top;white-space:nowrap">${label}</td>` +
-        `<td style="padding:8px 12px;color:#1f2a33;border-bottom:1px solid #eee">${escapeHtml(value)}</td>` +
-        `</tr>`,
-    )
-    .join("");
+  const e = escapeHtml;
+  const dataRow = (label: string, value: string, isLast = false) =>
+    `<tr>
+      <td style="padding:12px 0;font-size:11px;font-weight:700;color:#8a949c;text-transform:uppercase;letter-spacing:1px;vertical-align:top;white-space:nowrap;width:110px;${isLast ? "" : "border-bottom:1px solid #eef1f3;"}">${label}</td>
+      <td style="padding:12px 0 12px 16px;font-size:14px;color:#1f2a33;vertical-align:top;${isLast ? "" : "border-bottom:1px solid #eef1f3;"}">${value}</td>
+    </tr>`;
 
-  const html =
-    `<div style="font-family:Arial,Helvetica,sans-serif;max-width:600px;margin:0 auto">` +
-    `<h2 style="color:#124e6a;margin:0 0 16px">Novo contato via site</h2>` +
-    `<table style="width:100%;border-collapse:collapse;font-size:14px">${rows}</table>` +
-    `</div>`;
+  const html = `
+  <div style="margin:0;padding:32px 16px;background-color:#f2f5f7;font-family:Arial,Helvetica,sans-serif;">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;margin:0 auto;border-collapse:collapse;">
+      <!-- Cabeçalho -->
+      <tr>
+        <td style="background-color:#124e6a;background-image:linear-gradient(135deg,#124e6a 0%,#0a2e40 100%);border-radius:16px 16px 0 0;padding:32px 40px;">
+          <div style="font-size:22px;font-weight:700;color:#f2f5f7;letter-spacing:2px;">LEGITIMUS</div>
+          <div style="font-size:12px;font-weight:600;color:#c1ff72;letter-spacing:4px;margin-top:2px;">GREENTECH</div>
+          <div style="height:3px;width:48px;background-color:#c1ff72;border-radius:99px;margin-top:16px;"></div>
+          <div style="font-size:18px;font-weight:700;color:#ffffff;margin-top:16px;">Novo contato pelo site</div>
+          <div style="font-size:13px;color:rgba(242,245,247,0.6);margin-top:4px;">Alguém preencheu o formulário de contato agora há pouco.</div>
+        </td>
+      </tr>
+
+      <!-- Corpo -->
+      <tr>
+        <td style="background-color:#ffffff;padding:32px 40px;">
+          <!-- Badge de interesse -->
+          <div style="display:inline-block;background-color:#124e6a14;color:#124e6a;font-size:12px;font-weight:700;padding:6px 14px;border-radius:99px;margin-bottom:20px;">
+            ${e(interest)}
+          </div>
+
+          <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;">
+            ${dataRow("Nome", e(name))}
+            ${dataRow("E-mail", `<a href="mailto:${e(email)}" style="color:#124e6a;text-decoration:none;font-weight:600;">${e(email)}</a>`)}
+            ${dataRow("Empresa", e(company || "—"))}
+            ${dataRow("Telefone", phone ? `<a href="tel:${e(phone.replace(/\D/g, ""))}" style="color:#124e6a;text-decoration:none;">${e(phone)}</a>` : "—", true)}
+          </table>
+
+          <!-- Mensagem -->
+          <div style="margin-top:24px;background-color:#f2f5f7;border-left:4px solid #c1ff72;border-radius:0 12px 12px 0;padding:18px 20px;">
+            <div style="font-size:11px;font-weight:700;color:#8a949c;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Mensagem</div>
+            <div style="font-size:14px;color:#1f2a33;line-height:1.6;white-space:pre-line;">${e(message || "— sem mensagem —")}</div>
+          </div>
+
+          <!-- Botão responder -->
+          <table role="presentation" cellpadding="0" cellspacing="0" style="margin:28px auto 0;">
+            <tr>
+              <td style="background-color:#c1ff72;border-radius:99px;">
+                <a href="mailto:${e(email)}?subject=${encodeURIComponent(`Re: Contato via site — Legitimus GreenTech`)}"
+                   style="display:inline-block;padding:14px 32px;font-size:14px;font-weight:700;color:#1f2a33;text-decoration:none;">
+                  Responder para ${e(name.split(" ")[0])} &rarr;
+                </a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Rodapé -->
+      <tr>
+        <td style="background-color:#ffffff;border-radius:0 0 16px 16px;border-top:1px solid #eef1f3;padding:20px 40px;">
+          <div style="font-size:11px;color:#8a949c;text-align:center;line-height:1.6;">
+            Recebido pelo formulário de contato do site<br/>
+            <span style="color:#124e6a;font-weight:600;">legitimusgreentech.com.br</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>`;
 
   try {
     const resend = new Resend(apiKey);

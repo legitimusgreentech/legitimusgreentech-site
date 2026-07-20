@@ -9,6 +9,12 @@ interface ProductHeroProps {
   product: Product;
 }
 
+// Une as duas últimas palavras com espaço não separável — evita uma palavra órfã
+// sozinha na última linha do título (ex.: "GEE" isolado).
+function noOrphan(text: string): string {
+  return text.replace(/ (\S+)$/, " $1");
+}
+
 export function ProductHero({ product }: ProductHeroProps) {
   return (
     <section className="relative min-h-[70vh] flex items-center pt-16 overflow-hidden">
@@ -51,7 +57,7 @@ export function ProductHero({ product }: ProductHeroProps) {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-ice leading-tight"
           >
-            {product.name}
+            {noOrphan(product.name)}
           </motion.h1>
 
           <motion.p

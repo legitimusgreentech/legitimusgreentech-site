@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, BarChart3, Shield, Recycle, Cog } from "lucide-react";
+import { ArrowRight, Shield, Recycle } from "lucide-react";
 import { PRODUCTS } from "@/lib/constants";
 
 export function Hero() {
@@ -151,7 +151,7 @@ export function Hero() {
 
                   {/* Progress bars */}
                   <div className="space-y-3 pt-2">
-                    {PRODUCTS.map((p) => (
+                    {PRODUCTS.map((p, i) => (
                       <div key={p.key} className="flex items-center gap-3">
                         <span className="text-xs text-ice/40 w-24 truncate">
                           {p.shortName}
@@ -159,8 +159,8 @@ export function Hero() {
                         <div className="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden">
                           <motion.div
                             initial={{ width: 0 }}
-                            animate={{ width: `${60 + Math.random() * 35}%` }}
-                            transition={{ duration: 1.2, delay: 1 + Math.random() * 0.5 }}
+                            animate={{ width: `${[82, 68, 91, 74][i % 4]}%` }}
+                            transition={{ duration: 1.2, delay: 1 + i * 0.15 }}
                             className="h-full rounded-full"
                             style={{ backgroundColor: p.color }}
                           />

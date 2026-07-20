@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { Check } from "lucide-react";
 import { FadeIn } from "@/components/animations/fade-in";
 import type { Product } from "@/lib/constants";

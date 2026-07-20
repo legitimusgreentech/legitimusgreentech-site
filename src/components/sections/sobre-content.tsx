@@ -13,6 +13,7 @@ import {
   Zap,
   Users,
   Clock,
+  Leaf,
 } from "lucide-react";
 
 const valores = [
@@ -50,6 +51,13 @@ const valores = [
     description:
       "Entregamos com organização, disciplina e foco em performance, respeitando prazos e garantindo impacto real.",
     color: "var(--color-gold)",
+  },
+  {
+    icon: Leaf,
+    title: "Sustentabilidade com Propósito",
+    description:
+      "Atuamos com responsabilidade ambiental e visão de longo prazo, desenvolvendo soluções que unem eficiência operacional, impacto positivo e compromisso com a transformação sustentável dos negócios.",
+    color: "var(--color-leaf)",
   },
 ];
 

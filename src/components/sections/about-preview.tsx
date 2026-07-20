@@ -10,16 +10,15 @@ export function AboutPreview() {
     <section className="py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Imagem placeholder */}
+          {/* Foto do time */}
           <FadeIn>
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-[#16577a] via-[#124e6a] to-[#0f4258] border border-white/5 flex items-center justify-center p-12">
-              {/* Logo temporária até a foto do time (slide 8 v2) */}
+            <div className="relative aspect-[3/2] rounded-2xl overflow-hidden border border-coal/5 shadow-xl shadow-coal/10">
               <Image
-                src="/logo-blue.png"
-                alt="Legitimus GreenTech"
-                width={400}
-                height={120}
-                className="w-auto max-h-24 object-contain"
+                src="/team.jpeg"
+                alt="Equipe Legitimus GreenTech"
+                fill
+                sizes="(max-width: 1024px) 100vw, 600px"
+                className="object-cover"
               />
             </div>
           </FadeIn>

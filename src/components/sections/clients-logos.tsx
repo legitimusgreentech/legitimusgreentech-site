@@ -22,18 +22,19 @@ const clients = [
   { file: "grupo-polar", name: "Grupo Polar" },
   { file: "emibra", name: "Emibra" },
   { file: "euro-ambiental", name: "Euro Ambiental" },
-  { file: "globo-fraft", name: "GloboKraft" },
+  { file: "globokraft", name: "GloboKraft" },
   { file: "diadema-embalagens", name: "Diadema Embalagens" },
-  { file: "b&f-dias", name: "B&F Dias" },
+  { file: "bf-dias", name: "B&F Dias" },
   { file: "pacha", name: "Pacha" },
   { file: "rock-the-mountain", name: "Rock the Mountain" },
   { file: "shopping-metropole", name: "Shopping Metrópole" },
+  { file: "industria-fox", name: "Indústria Fox" },
 ].map((c) => ({
-  src: `/logos/${c.file}.jpg`,
+  src: `/logos/${c.file}.png`,
   alt: `${c.name} — cliente da Legitimus GreenTech`,
 }));
 
-const LOGO_WIDTH = 200;
+const LOGO_WIDTH = 240;
 const GAP = 24;
 const ITEM_TOTAL = LOGO_WIDTH + GAP;
 const SPEED = 0.15; // bem mais lento
@@ -131,14 +132,14 @@ export function ClientsLogos() {
             {allLogos.map((client, i) => (
               <div
                 key={`${client.src}-${i}`}
-                className="flex-shrink-0 w-[200px] h-20 flex items-center justify-center rounded-xl bg-white/60 border border-coal/5 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 px-4"
+                className="group/logo flex-shrink-0 w-[240px] h-24 flex items-center justify-center rounded-xl bg-white border border-coal/5 opacity-90 hover:opacity-100 hover:shadow-md hover:shadow-coal/5 transition-all duration-300 px-5"
               >
                 <Image
                   src={client.src}
                   alt={client.alt}
-                  width={160}
-                  height={64}
-                  className="object-contain max-h-14 w-auto select-none"
+                  width={200}
+                  height={80}
+                  className="object-contain max-h-16 max-w-[190px] w-auto select-none transition-transform duration-300 ease-out group-hover/logo:scale-110"
                   draggable={false}
                 />
               </div>

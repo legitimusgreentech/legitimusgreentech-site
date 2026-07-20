@@ -25,7 +25,7 @@ const testimonials = [
   },
   {
     quote:
-      "Estruturar nossa agenda ESG parecia complexo até trabalharmos com a Legitimus. Os indicadores ficaram claros e conectados às decisões do negócio.",
+      "Estruturar o ESG em nossa organização parecia complexo até trabalharmos com a Legitimus. Os indicadores ficaram claros e conectados às decisões do negócio.",
     author: "CEO",
     company: "Empresa de Tecnologia",
     product: "ESG",
@@ -84,8 +84,8 @@ export function Testimonials() {
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
 
-              {/* Author */}
-              <div className="mt-8">
+              {/* Author — centralizado explicitamente (ajustes finais, slide 4) */}
+              <div className="mt-8 flex flex-col items-center text-center">
                 <p className="text-base font-semibold text-coal">
                   {t.author}
                 </p>

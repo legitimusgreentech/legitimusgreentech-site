@@ -43,39 +43,43 @@ const features = [
   },
 ];
 
-const formats = [
-  {
+// Comparativo Recursos/Entregas — Start ESG × ESG Performance (ajustes finais, slide 9)
+const planHeaders = {
+  start: {
     name: "Start ESG",
-    badge: "Gratuito",
-    badgeColor: "#7ab442",
-    description:
-      "Autodiagnóstico estratégico acessível para empresas que estão começando a estruturar a pauta ESG. Orientado ao mercado, permite mapear o estágio atual e identificar as primeiras ações prioritárias.",
-    items: [
-      "Acesso ao questionário de diagnóstico",
-      "Mapeamento do estágio ESG atual",
-      "Relatório com primeiras ações prioritárias",
-      "Alinhamento com ABNT PR 2030",
-    ],
+    tagline: "Autodiagnóstico gratuito para empresas que querem entender seu nível de maturidade ESG.",
+    footerTitle: "Gratuito",
+    footerText: "Diagnóstico rápido e simples para iniciar sua jornada ESG.",
     cta: { label: "Começar gratuitamente", href: "/contato?interesse=esg-start" },
-    highlight: false,
   },
-  {
+  performance: {
     name: "ESG Performance",
-    badge: "Solicite orçamento",
-    badgeColor: PRODUCT_COLOR_HEX,
-    description:
-      "Programa completo de estruturação, implementação e desenvolvimento ESG. Inclui software personalizado, consultoria especializada, indicadores GRI/SASB e acompanhamento da jornada até o nível de maturidade desejado.",
-    items: [
-      "Software ESG personalizado ao setor",
-      "Diagnóstico completo conforme ABNT PR 2030",
-      "Consultoria de implementação end-to-end",
-      "Indicadores GRI, SASB e relatório ESG",
-      "Acompanhamento contínuo e suporte técnico",
-      "Nível de maturidade ESG certificado",
-    ],
+    tagline: "Jornada completa com estratégia, plano de ação, consultoria e possibilidade de certificação.",
+    footerTitle: "Consultoria completa",
+    footerText: "Transforme estratégia em resultados com suporte especializado.",
     cta: { label: "Solicitar orçamento", href: "/contato?interesse=esg-performance" },
-    highlight: true,
   },
+};
+
+const planFeatures: { label: string; start: boolean; performance: boolean }[] = [
+  { label: "Autodiagnóstico ESG (autopreenchimento)", start: true, performance: true },
+  { label: "Definição de critérios materiais para o negócio", start: true, performance: true },
+  { label: "Avaliação por níveis de cada critério dentro dos temas ESG", start: true, performance: true },
+  { label: "Resultado: nível de maturidade consolidado", start: true, performance: true },
+  { label: "Detalhamento dos resultados", start: false, performance: true },
+  { label: "Matriz de Materialidade", start: false, performance: true },
+  { label: "Matriz de Stakeholders", start: false, performance: true },
+  { label: "Plano de Ação", start: false, performance: true },
+  { label: "Consultoria especializada para implementação", start: false, performance: true },
+  { label: "Indicadores Gerenciais", start: false, performance: true },
+  { label: "Certificação PR 2030 (via organismo certificador)", start: false, performance: true },
+];
+
+// Indicadores ilustrativos do diagnóstico ESG (base: ferramenta interna — ajustes finais, slide 10)
+const esgIndicators = [
+  { label: "Ambiental", value: 44.0, color: "#7ab442" },
+  { label: "Social", value: 47.1, color: "#00c7fd" },
+  { label: "Governança", value: 41.8, color: "#aa8e6b" },
 ];
 
 // Telas reais do software ESG (prints da plataforma)
@@ -119,24 +123,83 @@ export function EsgContent() {
       {/* Intro */}
       <section className="py-24 lg:py-32 bg-ice">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <FadeIn>
-            <div className="max-w-3xl">
-              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-coal/40">
-                <span className="h-px w-8 rounded-full" style={{ backgroundColor: PRODUCT_COLOR }} />
-                Certificação ESG
-              </span>
-              <h2 className="mt-4 font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-coal">
-                Avaliação do estágio de maturidade ESG
-              </h2>
-              <p className="mt-5 text-base text-coal/60 leading-relaxed">
-                A certificação ESG da ABNT avalia o estágio de maturidade das práticas ESG da sua empresa
-                com base na norma <strong className="text-coal/80">ABNT PR 2030</strong>. O processo combina
-                diagnóstico estruturado, software personalizado e consultoria especializada — da estruturação
-                à implementação, com indicadores alinhados ao <strong className="text-coal/80">GRI</strong> e
-                ao <strong className="text-coal/80">SASB</strong>.
-              </p>
-            </div>
-          </FadeIn>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <FadeIn>
+              <div>
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-coal/40">
+                  <span className="h-px w-8 rounded-full" style={{ backgroundColor: PRODUCT_COLOR }} />
+                  Certificação ESG
+                </span>
+                <h2 className="mt-4 font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-coal">
+                  Avaliação do estágio de maturidade ESG
+                </h2>
+                <p className="mt-5 text-base text-coal/60 leading-relaxed">
+                  A certificação ESG da ABNT avalia o estágio de maturidade das práticas ESG da sua empresa
+                  com base na norma <strong className="text-coal/80">ABNT PR 2030</strong>. O processo combina
+                  diagnóstico estruturado, software personalizado e consultoria especializada — da estruturação
+                  à implementação, com indicadores alinhados ao <strong className="text-coal/80">GRI</strong> e
+                  ao <strong className="text-coal/80">SASB</strong>.
+                </p>
+              </div>
+            </FadeIn>
+
+            {/* Painel de indicadores do diagnóstico — dados ilustrativos (slide 10, ajustes finais) */}
+            <FadeIn delay={0.15}>
+              <div className="bg-white rounded-2xl border border-coal/5 shadow-xl shadow-coal/5 p-7">
+                <div className="flex items-center justify-between mb-6">
+                  <p className="text-xs font-bold uppercase tracking-widest text-coal/40">
+                    Diagnóstico ESG — % por pilar
+                  </p>
+                  <span className="px-2.5 py-1 text-[10px] font-bold rounded-full bg-lime/20 text-coal/70 uppercase tracking-wider">
+                    Exemplo
+                  </span>
+                </div>
+
+                <div className="space-y-5">
+                  {esgIndicators.map((ind) => (
+                    <div key={ind.label}>
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="text-sm font-medium text-coal/70">{ind.label}</span>
+                        <span className="text-sm font-bold font-data" style={{ color: ind.color }}>
+                          {ind.value.toFixed(1).replace(".", ",")}%
+                        </span>
+                      </div>
+                      <div className="h-2.5 bg-coal/5 rounded-full overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${ind.value}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1, ease: "easeOut" }}
+                          className="h-full rounded-full"
+                          style={{ backgroundColor: ind.color }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-7 pt-6 border-t border-coal/5 flex items-center justify-between gap-4">
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-wider text-coal/40">
+                      Diagnóstico Geral
+                    </p>
+                    <p className="font-data text-3xl font-bold text-coal mt-1">44,7%</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-[11px] font-semibold uppercase tracking-wider text-coal/40">
+                      Nível de maturidade
+                    </p>
+                    <span
+                      className="inline-block mt-1.5 px-3 py-1.5 text-xs font-bold rounded-full"
+                      style={{ backgroundColor: `${PRODUCT_COLOR_HEX}12`, color: PRODUCT_COLOR_HEX }}
+                    >
+                      3 · Gerencial
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
@@ -274,57 +337,86 @@ export function EsgContent() {
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {formats.map((fmt, i) => (
-              <FadeIn key={fmt.name} delay={i * 0.1}>
-                <div className={`relative p-8 rounded-2xl border flex flex-col h-full ${fmt.highlight ? "border-lime/30 bg-lime/5" : "border-ice/10 bg-white/5"}`}>
-                  {fmt.highlight && (
-                    <div className="absolute -top-3 left-6">
-                      <span className="px-3 py-1 text-xs font-bold text-coal bg-lime rounded-full uppercase tracking-wider">
-                        Recomendado
-                      </span>
-                    </div>
-                  )}
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-heading text-xl font-bold text-ice">{fmt.name}</h3>
-                    <span
-                      className="px-3 py-1 text-xs font-bold rounded-full"
-                      style={{
-                        backgroundColor: `${fmt.badgeColor}25`,
-                        color: fmt.highlight ? "var(--color-lime)" : "rgba(242,245,247,0.7)",
-                      }}
-                    >
-                      {fmt.badge}
+          {/* Tabela comparativa Recursos / Entregas */}
+          <FadeIn delay={0.1}>
+            <div className="max-w-5xl mx-auto overflow-x-auto">
+              <div className="min-w-[720px] rounded-2xl overflow-hidden border border-ice/10 bg-white/5">
+                {/* Cabeçalho */}
+                <div className="grid grid-cols-[1.3fr_1fr_1fr]">
+                  <div className="p-6 flex items-end">
+                    <span className="text-xs font-bold uppercase tracking-widest text-ice/60 border-b-2 border-lime pb-2">
+                      Recursos / Entregas
                     </span>
                   </div>
-                  <p className="text-sm text-ice/60 leading-relaxed mb-5">{fmt.description}</p>
-                  <ul className="space-y-2 mb-8 flex-1">
-                    {fmt.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2">
-                        <Check
-                          size={13}
-                          className="flex-shrink-0 mt-0.5"
-                          style={{ color: fmt.highlight ? "var(--color-lime)" : "rgba(242,245,247,0.5)" }}
-                        />
-                        <span className="text-sm text-ice/70">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href={fmt.cta.href}
-                    className={`inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-full transition-all duration-200 group ${
-                      fmt.highlight
-                        ? "bg-lime text-coal hover:bg-lime/80"
-                        : "border border-ice/20 text-ice hover:bg-ice/5"
-                    }`}
-                  >
-                    {fmt.cta.label}
-                    <ArrowRight size={15} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  <div className="p-6 text-center border-l border-ice/10">
+                    <h3 className="font-heading text-xl font-bold text-ice">{planHeaders.start.name}</h3>
+                    <p className="mt-2 text-xs text-ice/50 leading-relaxed">{planHeaders.start.tagline}</p>
+                  </div>
+                  <div className="p-6 text-center border-l border-lime/25 bg-lime/5 relative">
+                    <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-1 text-[10px] font-bold text-coal bg-lime rounded-full uppercase tracking-wider">
+                      Recomendado
+                    </span>
+                    <h3 className="font-heading text-xl font-bold text-ice">{planHeaders.performance.name}</h3>
+                    <p className="mt-2 text-xs text-ice/50 leading-relaxed">{planHeaders.performance.tagline}</p>
+                  </div>
                 </div>
-              </FadeIn>
-            ))}
-          </div>
+
+                {/* Linhas */}
+                {planFeatures.map((row) => (
+                  <div key={row.label} className="grid grid-cols-[1.3fr_1fr_1fr] border-t border-ice/8">
+                    <div className="px-6 py-3.5 flex items-center">
+                      <span className={`text-sm ${row.start ? "text-ice/80" : "text-ice/70"}`}>{row.label}</span>
+                    </div>
+                    <div className="px-6 py-3.5 flex items-center justify-center border-l border-ice/10">
+                      {row.start ? (
+                        <span className="w-6 h-6 rounded-full bg-leaf/20 flex items-center justify-center">
+                          <Check size={13} className="text-lime" strokeWidth={3} />
+                        </span>
+                      ) : (
+                        <span className="text-xs text-ice/25 line-through decoration-ice/30">indisponível</span>
+                      )}
+                    </div>
+                    <div className="px-6 py-3.5 flex items-center justify-center border-l border-lime/25 bg-lime/5">
+                      {row.performance ? (
+                        <span className="w-6 h-6 rounded-full bg-lime/20 flex items-center justify-center">
+                          <Check size={13} className="text-lime" strokeWidth={3} />
+                        </span>
+                      ) : (
+                        <span className="text-xs text-ice/25 line-through decoration-ice/30">indisponível</span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+
+                {/* Rodapé com CTAs */}
+                <div className="grid grid-cols-[1.3fr_1fr_1fr] border-t border-ice/10">
+                  <div className="p-6" />
+                  <div className="p-6 text-center border-l border-ice/10">
+                    <p className="text-xs font-bold uppercase tracking-wider text-ice/70">{planHeaders.start.footerTitle}</p>
+                    <p className="mt-1 text-[11px] text-ice/45 leading-relaxed">{planHeaders.start.footerText}</p>
+                    <Link
+                      href={planHeaders.start.cta.href}
+                      className="mt-4 inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold text-ice border border-ice/20 rounded-full hover:bg-ice/5 transition-all group"
+                    >
+                      {planHeaders.start.cta.label}
+                      <ArrowRight size={13} className="ml-1.5 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
+                  <div className="p-6 text-center border-l border-lime/25 bg-lime/5">
+                    <p className="text-xs font-bold uppercase tracking-wider text-lime">{planHeaders.performance.footerTitle}</p>
+                    <p className="mt-1 text-[11px] text-ice/45 leading-relaxed">{planHeaders.performance.footerText}</p>
+                    <Link
+                      href={planHeaders.performance.cta.href}
+                      className="mt-4 inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold text-coal bg-lime rounded-full hover:bg-lime/80 transition-all group"
+                    >
+                      {planHeaders.performance.cta.label}
+                      <ArrowRight size={13} className="ml-1.5 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 

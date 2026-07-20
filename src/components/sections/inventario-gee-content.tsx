@@ -117,8 +117,8 @@ export function InventarioGeeContent() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {scopes.map((scope, i) => (
-              <FadeIn key={scope.n} delay={i * 0.08}>
-                <div className="p-6 rounded-2xl bg-ice border border-coal/5">
+              <FadeIn key={scope.n} delay={i * 0.08} className="h-full">
+                <div className="p-6 rounded-2xl bg-ice border border-coal/5 h-full">
                   <div
                     className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold mb-4"
                     style={{

@@ -3,11 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, Droplets, Leaf, Zap, ShieldCheck, RefreshCw, ImageOff } from "lucide-react";
+import { Check, ArrowRight, Droplets, Leaf, Zap, ShieldCheck, RefreshCw } from "lucide-react";
 import { FadeIn } from "@/components/animations/fade-in";
-
-const PRODUCT_COLOR = "var(--color-silver)";
-const PRODUCT_COLOR_HEX = "#c0c0c0";
 
 const ecoBoxHighlights = [
   { icon: Droplets, label: "Remove 90 a 95% de óleos e gorduras" },
@@ -84,37 +81,50 @@ export function EquipamentosContent() {
       {/* Intro */}
       <section className="py-24 lg:py-32 bg-ice">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <FadeIn>
-            <div className="max-w-3xl">
-              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-coal/40">
-                <span className="h-px w-8 bg-coal/20 rounded-full" />
-                Equipamentos Ambientais
-              </span>
-              <h2 className="mt-4 font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-coal">
-                Equipamentos que fecham o ciclo da sustentabilidade
-              </h2>
-              <p className="mt-2 text-base text-coal/40 font-medium">O ciclo da Sustentabilidade</p>
-              <p className="mt-5 text-base text-coal/60 leading-relaxed">
-                A Legitimus oferece soluções ambientais inteligentes para impulsionar programas de
-                Lixo Zero, Aterro Zero e ESG, promovendo economia circular, redução de desperdícios,
-                diminuição dos impactos ambientais e mais eficiência operacional.
-              </p>
-              <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                <a
-                  href="#eco-box"
-                  className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-coal bg-coal/8 rounded-full hover:bg-coal/15 transition-all duration-200"
-                >
-                  Separadora de Água e Óleo
-                </a>
-                <a
-                  href="#composteiras"
-                  className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-coal bg-coal/8 rounded-full hover:bg-coal/15 transition-all duration-200"
-                >
-                  Composteira Automatizada
-                </a>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+            <FadeIn className="lg:col-span-2">
+              <div>
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-coal/40">
+                  <span className="h-px w-8 bg-coal/20 rounded-full" />
+                  Equipamentos Ambientais
+                </span>
+                <h2 className="mt-4 font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-coal">
+                  Equipamentos que fecham o ciclo da sustentabilidade
+                </h2>
+                <p className="mt-2 text-base text-coal/40 font-medium">O ciclo da Sustentabilidade</p>
+                <p className="mt-5 text-base text-coal/60 leading-relaxed">
+                  A Legitimus oferece soluções ambientais inteligentes para impulsionar programas de
+                  Lixo Zero, Aterro Zero e ESG, promovendo economia circular, redução de desperdícios,
+                  diminuição dos impactos ambientais e mais eficiência operacional.
+                </p>
               </div>
-            </div>
-          </FadeIn>
+            </FadeIn>
+
+            {/* Lista de equipamentos — navegação (lado direito) */}
+            <FadeIn delay={0.1}>
+              <div className="bg-white rounded-2xl border border-coal/5 p-6">
+                <p className="text-xs font-semibold uppercase tracking-widest text-coal/40 mb-4">
+                  Nossos equipamentos
+                </p>
+                <nav className="divide-y divide-coal/5">
+                  <a
+                    href="#eco-box"
+                    className="group flex items-center justify-between gap-3 py-4 text-sm font-semibold text-coal hover:text-petrol transition-colors"
+                  >
+                    Separadora de Água e Óleo
+                    <ArrowRight size={15} className="text-coal/30 group-hover:text-petrol group-hover:translate-x-1 transition-all" />
+                  </a>
+                  <a
+                    href="#composteiras"
+                    className="group flex items-center justify-between gap-3 py-4 text-sm font-semibold text-coal hover:text-petrol transition-colors"
+                  >
+                    Composteira Automatizada
+                    <ArrowRight size={15} className="text-coal/30 group-hover:text-petrol group-hover:translate-x-1 transition-all" />
+                  </a>
+                </nav>
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
@@ -189,11 +199,22 @@ export function EquipamentosContent() {
             {/* Imagem + Dados técnicos */}
             <FadeIn delay={0.15}>
               <div className="space-y-6">
-              {/* PLACEHOLDER — falta imagem da Eco Box sem fundo (Canva). Slide 4/5 v3 */}
-              <div className="rounded-2xl border-2 border-dashed border-coal/20 bg-ice h-56 flex flex-col items-center justify-center gap-2 text-coal/40">
-                <ImageOff size={30} />
-                <span className="text-xs font-bold uppercase tracking-wider">NÃO TEM IMAGEM ECO BOX</span>
-                <span className="text-[10px] text-coal/30">(caixa sem fundo — Canva)</span>
+              {/* Foto Eco Box + selo Aço Inox */}
+              <div className="relative rounded-2xl bg-white border border-coal/5 h-64 flex items-center justify-center p-6">
+                <Image
+                  src="/equipamentos/eco-box.png"
+                  alt="Caixa Separadora de Água e Óleo Eco Box em aço inox"
+                  width={981}
+                  height={884}
+                  className="object-contain max-h-52 w-auto"
+                />
+                <Image
+                  src="/equipamentos/selo-aco-inox.png"
+                  alt="Selo Aço Inox"
+                  width={866}
+                  height={858}
+                  className="absolute bottom-4 right-4 w-16 h-16 object-contain drop-shadow"
+                />
               </div>
               <div className="bg-ice rounded-2xl border border-coal/5 overflow-hidden">
                 <div className="px-6 py-5 border-b border-coal/5">
@@ -355,8 +376,8 @@ export function EquipamentosContent() {
                 <Image
                   src="/equipamentos/locacao-verde.png"
                   alt="Locação Verde — você loca, nós cuidamos: composteira por assinatura"
-                  width={1410}
-                  height={2000}
+                  width={1340}
+                  height={892}
                   className="w-full h-auto max-h-80 object-contain"
                 />
               </div>

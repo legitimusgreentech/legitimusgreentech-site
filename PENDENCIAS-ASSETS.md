@@ -1,59 +1,52 @@
-# Pendências de Assets — Legitimus GreenTech
+# Pendências — Legitimus GreenTech
 
-Branch: `feat/alteracoes-cliente-v3`
-
-Todas as alterações dos briefings **Site Legitimus v2.pptx** e **Site Legitimus v3.pptx** já estão
-implementadas em código. O que resta abaixo depende **apenas de assets do cliente** ou de uma
-ação operacional. Nada mais precisa de desenvolvimento.
-
-Onde falta um asset, a tela mostra um **placeholder tracejado bem visível** (texto `NÃO TEM ...`)
-para não passar despercebido em produção.
+Atualizado após a rodada "Versão final dos ajustes do site" (reunião de 06/jul).
+Os 17 slides de ajustes finais estão implementados, exceto os itens abaixo.
 
 ---
 
-## 🖼️ 1. Assets faltando (aparecem como placeholder na tela)
+## 🖼️ 1. Pendente do cliente / Rafael
 
-### 1.1 Logo oficial do ILZB — `NÃO TEM LOGO ILZB`
-- **Onde aparece:** página `/lixo-zero`, seção final "Metodologias e credenciamentos"
-- **Pedido em:** v3, slides 13 e 17
-- **O que fazer:** salvar o logo em `public/lixo-zero/ilzb.png` e trocar o bloco placeholder
-  por um `<Image>` em `src/components/sections/lixo-zero-content.tsx` (procurar por `NÃO TEM LOGO ILZB`)
+### 1.1 Foto do time gerada por IA (slide 2 — ajustes finais)
+- **O que é:** montagem por IA (Eduardo + Elton + Ramalho + Patrícia, camisa social azul
+  do logo, logo novo ao fundo) — Rafael está gerando e envia para aprovação do cliente.
+- **Onde entra:** home, seção "Quem Somos" (hoje mostra o logo sobre fundo petróleo).
+- **Como aplicar:** salvar como `public/team.png` e trocar o `<Image src="/logo-blue.png">`
+  em `src/components/sections/about-preview.tsx`.
 
-### 1.2 Caixa Eco Box sem fundo + Selo Aço Inox — `NÃO TEM IMAGEM ECO BOX`
-- **Onde aparece:** página `/maquinas-equipamentos`, produto 1 (Caixa Separadora Eco Box)
-- **Pedido em:** v3, slides 4 e 5 (fonte: canva.link/panfleto-caixa-e-composteira)
-- **O que fazer:** salvar a caixa sem fundo em `public/equipamentos/eco-box.png` e o selo em
-  `public/equipamentos/selo-aco-inox.png`; trocar o placeholder em
-  `src/components/sections/equipamentos-content.tsx` (procurar por `NÃO TEM IMAGEM ECO BOX`)
+### 1.2 Logo Mapfre (slide 14 — ajustes finais)
+- A lista de empresas certificadas da página Lixo Zero inclui a Mapfre, mas o logo
+  **não veio** na pasta "Imagens Legitimus PNG-final".
+- Hoje a faixa mostra as 9 certificadas com logo. Quando chegar: salvar
+  `public/logos/mapfre.png` e adicionar `{ file: "mapfre", name: "Mapfre" }` em
+  `certifiedClients` (`src/components/sections/lixo-zero-content.tsx`).
 
----
+### 1.3 Vídeo real da plataforma (futuro — decidido em reunião)
+- Quando a Evoluto estiver rodando, o cliente grava o vídeo e substituímos o
+  infográfico simulado da seção "Etapas do Projeto" (home).
 
-## 🔄 2. Upgrades (já funcionam com versão temporária)
-
-Estes já estão na tela com uma versão provisória extraída do PPTX. Para trocar pela versão
-definitiva, **basta sobrescrever o arquivo com o mesmo nome** — a página atualiza sozinha.
-
-| Asset | Arquivo a sobrescrever | Observação da versão atual |
-|---|---|---|
-| Prints do software ESG | `public/esg/login.jpg` · `dashboard.jpg` · `materialidade.jpg` · `formularios.jpg` | Resolução média; têm foto pessoal e `localhost` visível |
-| Logo Global Zero Waste | `public/lixo-zero/global-zero-waste.png` | Pequeno (327×133) e com leve fundo verde |
-| Foto do time | `public/logo-blue.png` está sendo usado como provisório na home | Trocar pela foto real do time (ajustar `src/components/sections/about-preview.tsx`) |
+### 1.4 Prints do software ESG em alta (opcional)
+- A galeria da página ESG usa os prints extraídos do PPTX (resolução média,
+  com foto pessoal). Para trocar: sobrescrever `public/esg/*.jpg` com os mesmos nomes.
 
 ---
 
-## ⚙️ 3. Operacional (não é código)
+## ⚙️ 2. Infra (decididos em reunião — fora do código)
 
-### 3.1 Ativar o FormSubmit
-- O formulário de `/contato` envia via **FormSubmit.co** para `contato@legitimusgreentech.com.br`.
-- Na **primeira submissão**, o FormSubmit envia um e-mail de confirmação para essa caixa.
-  **Alguém precisa abrir esse e-mail e clicar em "Activate"** — sem isso, os envios não chegam.
+- **Redirecionamento do domínio antigo** ("Legitimus Ambiental" → legitimusgreentech.com.br)
+  no painel da Hostinger + backup do site antigo no GitHub.
+- **Verificação do domínio no Resend** (registros DNS na Hostinger) — sem isso o
+  formulário de contato não entrega e-mail. Env vars já na Vercel
+  (`RESEND_API_KEY`, `RESEND_FROM`).
+- **Entrega de credenciais** (GitHub/Vercel/Resend) ao cliente ao final.
 
 ---
 
-## ✅ Referência rápida — assets já entregues (do PPTX)
+## ✅ Resolvido nesta rodada (não é mais pendência)
 
-Estes já estão no projeto e funcionando:
-- Logos dos clientes (carrossel da home) — `public/logos/` (22 empresas)
-- Fotos dos equipamentos — Composteira, Linha Smart, Locação Verde — `public/equipamentos/`
-- Conteúdo completo da Metodologia Global Zero Waste (SGLZ) — `/lixo-zero`
-- Prints do software ESG em galeria interativa — `/esg`
+- Logo ILZB, Global Zero Waste em alta, Eco Box, selo Aço Inox, composteira,
+  Linha Smart e Locação Verde — todos aplicados a partir da pasta
+  "Imagens Legitimus PNG-final" (recortados de margens transparentes).
+- 23 logos de clientes coloridos (incl. novo cliente Indústria Fox) no carrossel.
+- Tabela comparativa Start ESG × ESG Performance, painel de indicadores ESG,
+  infográfico do Portal do Cliente, serviços genéricos do Lixo Zero.

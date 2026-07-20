@@ -39,7 +39,7 @@ export interface Product {
 export const PRODUCTS: Product[] = [
   {
     key: "inventario-gee",
-    name: "Inventário de Emissões de GEE",
+    name: "Inventário de Emissões GEE",
     shortName: "Inventário GEE",
     headline: "Seja selo ouro no GHG Protocol",
     description:

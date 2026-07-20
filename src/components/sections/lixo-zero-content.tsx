@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, Building2, ShoppingBag, Globe, Factory, ShieldCheck, ListChecks, Handshake, Search, ImageOff } from "lucide-react";
+import { Check, ArrowRight, Building2, ShoppingBag, Globe, Factory, ShieldCheck, ListChecks, Handshake, Search } from "lucide-react";
 import { FadeIn } from "@/components/animations/fade-in";
 
 const PRODUCT_COLOR = "var(--color-petrol)";
@@ -42,42 +42,69 @@ const certLevels = [
 
 const services = [
   {
-    number: "01",
-    name: "Diagnóstico Lixo Zero",
-    subtitle: "Pré-Auditoria",
+    name: "Diagnóstico de Gestão de Resíduos",
     description:
-      "Avaliação completa da gestão de resíduos atual antes da auditoria oficial. Identificamos gaps, medimos a porcentagem de desvio de aterro e entregamos relatório com pontos de observação.",
+      "Diagnóstico técnico da gestão de resíduos, avaliando o cenário atual, as oportunidades de melhoria e a aderência à metodologia selecionada — nas modalidades remota ou presencial.",
     deliverables: [
-      "Relatório de diagnóstico completo",
-      "Check-list da metodologia ILZB",
-      "Mapa de oportunidades de melhoria",
-      "Pontuação estimada para certificação",
+      "Levantamento documental completo",
+      "Avaliação operacional da geração à destinação",
+      "Visita técnica com consultor especialista",
+      "Relatório técnico com resultado de adesão",
     ],
   },
   {
-    number: "02",
+    name: "Plano de Ação",
+    description:
+      "Com base no diagnóstico, elaboramos um plano personalizado com prioridades, responsáveis, prazos, recursos e indicadores de acompanhamento — implementação organizada e alinhada aos objetivos da organização.",
+    deliverables: [
+      "Critérios avaliados item a item",
+      "Ações planejadas por prioridade",
+      "Responsáveis e prazos definidos",
+      "Evidências e acompanhamento",
+    ],
+  },
+  {
     name: "Consultoria de Implementação",
-    subtitle: "Do diagnóstico à certificação",
     description:
-      "Para empresas que ainda não possuem a metodologia implementada. Criamos um plano personalizado, executamos e acompanhamos cada etapa até sua empresa estar pronta para a auditoria oficial.",
+      "Acompanhamento técnico durante toda a implementação, apoiando a execução das ações, a tomada de decisões e a evolução da gestão de resíduos.",
     deliverables: [
-      "Plano de ação detalhado",
-      "Estratégias para implementação integral",
-      "Treinamento de colaboradores multiplicadores",
-      "Suporte técnico em documentação",
+      "Reuniões de acompanhamento periódicas",
+      "Orientações técnicas especializadas",
+      "Monitoramento das ações e indicadores",
+      "Preparação para auditoria",
     ],
   },
   {
-    number: "03",
-    name: "Auditoria Presencial ILZB",
-    subtitle: "Certificação oficial",
+    name: "Capacitação das Equipes",
     description:
-      "Realizamos a auditoria presencial como credenciados pelo Instituto Lixo Zero Brasil, validando a gestão de resíduos e emitindo a certificação oficial nos níveis Rumo ao Lixo Zero ou Certificação Lixo Zero.",
+      "Capacitamos as equipes para aplicar os princípios da metodologia no dia a dia, fortalecendo a cultura organizacional, o engajamento dos colaboradores e a gestão de resíduos.",
     deliverables: [
-      "Auditoria in loco por auditores credenciados",
-      "Verificação de toda a cadeia de gestão",
-      "Emissão de certificação oficial ILZB",
-      "Renovação anual com acompanhamento",
+      "Treinamento teórico e prático",
+      "Turmas e carga horária sob medida",
+      "Engajamento de toda a organização",
+      "Fortalecimento da cultura organizacional",
+    ],
+  },
+  {
+    name: "Pré-Auditoria para Certificação",
+    description:
+      "Avaliação completa utilizando os critérios da metodologia para verificar o nível de aderência da organização, identificar pontos de melhoria e corrigir desvios antes da auditoria oficial.",
+    deliverables: [
+      "Percentual de desvio e nota de atendimento",
+      "Identificação de não conformidades",
+      "Oportunidades de melhoria",
+      "Prontidão para certificação",
+    ],
+  },
+  {
+    name: "Acompanhamento da Auditoria",
+    description:
+      "Acompanhamos a organização durante a auditoria de certificação, prestando suporte técnico para garantir uma condução segura, organizada e transparente.",
+    deliverables: [
+      "Alinhamento inicial e estratégia",
+      "Presença técnica durante a auditoria",
+      "Suporte à apresentação de evidências",
+      "Gestão das constatações e próximos passos",
     ],
   },
 ];
@@ -87,7 +114,7 @@ const processSteps = [
   { n: "2", title: "Plano de Ação", desc: "Estratégias, adequações, indicadores e cronograma" },
   { n: "3", title: "Execução e Acompanhamento", desc: "Implementação, suporte técnico e treinamento" },
   { n: "4", title: "Resultados e Entregáveis", desc: "Relatório final e check-list da metodologia" },
-  { n: "5", title: "Auditoria Presencial", desc: "Certificação oficial pelo Instituto Lixo Zero Brasil" },
+  { n: "5", title: "Auditoria Presencial", desc: "Certificação oficial" },
 ];
 
 const sectors = [
@@ -106,9 +133,17 @@ const benefits = [
   "Menor produção de lixo e impacto direto na economia da reciclagem",
 ];
 
-const clients = [
-  "GloboKraft", "Grupo Polar", "Scania", "Emibra", "MWM",
-  "Mapfre", "Givaudan", "CasaCor", "Ibema", "Lear Corporation",
+// Somente empresas certificadas (slide 14 — ajustes finais). Mapfre: aguardando logo.
+const certifiedClients = [
+  { file: "globokraft", name: "GloboKraft" },
+  { file: "grupo-polar", name: "Grupo Polar" },
+  { file: "scania", name: "Scania" },
+  { file: "emibra", name: "Emibra" },
+  { file: "mwm", name: "MWM" },
+  { file: "givaudan", name: "Givaudan" },
+  { file: "casacor", name: "CasaCor" },
+  { file: "ibema", name: "Ibema" },
+  { file: "lear-corporation", name: "Lear Corporation" },
 ];
 
 export function LixoZeroContent() {
@@ -345,9 +380,9 @@ export function LixoZeroContent() {
                   <Image
                     src="/lixo-zero/global-zero-waste.png"
                     alt="Global Zero Waste — Sistema de Gestão Lixo Zero (SGLZ)"
-                    width={327}
-                    height={133}
-                    className="h-14 w-auto object-contain"
+                    width={1625}
+                    height={567}
+                    className="h-16 w-auto object-contain"
                   />
                 </div>
                 <h2 className="mt-6 font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-coal">
@@ -388,7 +423,7 @@ export function LixoZeroContent() {
         </div>
       </section>
 
-      {/* Três serviços */}
+      {/* O que realizamos — serviços genéricos para as duas metodologias */}
       <section className="py-24 lg:py-32 bg-ice">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
@@ -398,44 +433,29 @@ export function LixoZeroContent() {
                 Nossos Serviços
               </span>
               <h2 className="mt-4 font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-coal">
-                Como atuamos
+                O que realizamos
               </h2>
+              <p className="mt-4 text-base text-coal/60">
+                Atuação completa em gestão de resíduos — do diagnóstico à certificação,
+                em qualquer uma das metodologias.
+              </p>
             </div>
           </FadeIn>
 
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {services.map((svc, i) => (
-              <FadeIn key={svc.number} delay={i * 0.1}>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 bg-white rounded-2xl border border-coal/5 overflow-hidden">
-                  {/* Number + title */}
-                  <div
-                    className="p-8 lg:p-10 flex flex-col justify-center"
-                    style={{ borderRight: "1px solid rgba(31,42,51,0.06)" }}
-                  >
-                    <div
-                      className="text-5xl font-heading font-bold mb-4"
-                      style={{ color: `${PRODUCT_COLOR_HEX}20` }}
-                    >
-                      {svc.number}
-                    </div>
-                    <div className="text-xs font-semibold uppercase tracking-wider text-coal/40 mb-1">
-                      {svc.subtitle}
-                    </div>
-                    <h3 className="font-heading text-xl font-bold text-coal">{svc.name}</h3>
-                  </div>
-
-                  {/* Description */}
-                  <div className="p-8 lg:p-10 lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <p className="text-sm text-coal/60 leading-relaxed">{svc.description}</p>
-                    <ul className="space-y-2">
-                      {svc.deliverables.map((d) => (
-                        <li key={d} className="flex items-start gap-2 text-sm text-coal/70">
-                          <Check size={14} style={{ color: PRODUCT_COLOR }} className="flex-shrink-0 mt-0.5" />
-                          {d}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+              <FadeIn key={svc.name} delay={i * 0.08} className="h-full">
+                <div className="bg-white rounded-2xl border border-coal/5 p-8 h-full flex flex-col">
+                  <h3 className="font-heading text-lg font-bold text-coal mb-3">{svc.name}</h3>
+                  <p className="text-sm text-coal/60 leading-relaxed mb-5">{svc.description}</p>
+                  <ul className="space-y-2 mt-auto">
+                    {svc.deliverables.map((d) => (
+                      <li key={d} className="flex items-start gap-2 text-sm text-coal/70">
+                        <Check size={14} style={{ color: PRODUCT_COLOR }} className="flex-shrink-0 mt-0.5" />
+                        {d}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </FadeIn>
             ))}
@@ -549,7 +569,7 @@ export function LixoZeroContent() {
         </div>
       </section>
 
-      {/* Empresas que já implementaram */}
+      {/* Empresas certificadas */}
       <section className="py-16 bg-white border-y border-coal/5">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
@@ -558,19 +578,22 @@ export function LixoZeroContent() {
             </p>
           </FadeIn>
           <FadeIn delay={0.08}>
-            <div className="flex flex-wrap justify-center gap-3">
-              {clients.map((client) => (
+            <div className="flex flex-wrap justify-center gap-5">
+              {certifiedClients.map((client) => (
                 <div
-                  key={client}
-                  className="px-5 py-2.5 rounded-full border border-coal/8 text-sm font-medium text-coal/50 bg-ice"
+                  key={client.file}
+                  className="group/logo w-44 h-20 flex items-center justify-center rounded-xl bg-white border border-coal/5 px-4 hover:shadow-md hover:shadow-coal/5 transition-shadow"
                 >
-                  {client}
+                  <Image
+                    src={`/logos/${client.file}.png`}
+                    alt={`${client.name} — empresa certificada`}
+                    width={160}
+                    height={64}
+                    className="object-contain max-h-12 max-w-[150px] w-auto select-none transition-transform duration-300 ease-out group-hover/logo:scale-110"
+                  />
                 </div>
               ))}
             </div>
-            <p className="text-center text-xs text-coal/30 mt-6">
-              Logos em alta resolução em breve
-            </p>
           </FadeIn>
         </div>
       </section>
@@ -585,23 +608,28 @@ export function LixoZeroContent() {
           </FadeIn>
           <FadeIn delay={0.08}>
             <div className="flex flex-wrap items-start justify-center gap-10">
-              {/* ILZB — PLACEHOLDER, falta logo oficial */}
+              {/* ILZB */}
               <div className="flex flex-col items-center gap-3">
-                <div className="w-56 h-24 rounded-2xl border-2 border-dashed border-coal/20 bg-white flex flex-col items-center justify-center gap-1 text-coal/40">
-                  <ImageOff size={22} />
-                  <span className="text-[11px] font-bold uppercase tracking-wider">NÃO TEM LOGO ILZB</span>
+                <div className="w-64 h-28 rounded-2xl border border-coal/8 bg-white flex items-center justify-center px-6">
+                  <Image
+                    src="/lixo-zero/ilzb.png"
+                    alt="Instituto Lixo Zero Brasil"
+                    width={1440}
+                    height={726}
+                    className="max-h-20 w-auto object-contain"
+                  />
                 </div>
                 <span className="text-xs text-coal/50 font-medium">Instituto Lixo Zero Brasil</span>
               </div>
-              {/* Global Zero Waste — logo real (extraído do PPTX) */}
+              {/* Global Zero Waste */}
               <div className="flex flex-col items-center gap-3">
-                <div className="w-56 h-24 rounded-2xl border border-coal/8 bg-white flex items-center justify-center px-6">
+                <div className="w-64 h-28 rounded-2xl border border-coal/8 bg-white flex items-center justify-center px-6">
                   <Image
                     src="/lixo-zero/global-zero-waste.png"
                     alt="Global Zero Waste — Sistema de Gestão Lixo Zero"
-                    width={327}
-                    height={133}
-                    className="max-h-14 w-auto object-contain"
+                    width={1625}
+                    height={567}
+                    className="max-h-16 w-auto object-contain"
                   />
                 </div>
                 <span className="text-xs text-coal/50 font-medium">Global Zero Waste (SGLZ)</span>
