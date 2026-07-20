@@ -349,13 +349,21 @@ export function EsgContent() {
                     </span>
                   </div>
                   <div className="p-6 text-center border-l border-ice/10">
+                    {/* Espaçador invisível para alinhar com a badge "Recomendado" */}
+                    <div className="mb-2">
+                      <span className="invisible inline-block px-3 py-1 text-[10px] font-bold rounded-full uppercase tracking-wider">
+                        Recomendado
+                      </span>
+                    </div>
                     <h3 className="font-heading text-xl font-bold text-ice">{planHeaders.start.name}</h3>
                     <p className="mt-2 text-xs text-ice/50 leading-relaxed">{planHeaders.start.tagline}</p>
                   </div>
-                  <div className="p-6 text-center border-l border-lime/25 bg-lime/5 relative">
-                    <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-1 text-[10px] font-bold text-coal bg-lime rounded-full uppercase tracking-wider">
-                      Recomendado
-                    </span>
+                  <div className="p-6 text-center border-l border-lime/25 bg-lime/5">
+                    <div className="mb-2">
+                      <span className="inline-block px-3 py-1 text-[10px] font-bold text-coal bg-lime rounded-full uppercase tracking-wider">
+                        Recomendado
+                      </span>
+                    </div>
                     <h3 className="font-heading text-xl font-bold text-ice">{planHeaders.performance.name}</h3>
                     <p className="mt-2 text-xs text-ice/50 leading-relaxed">{planHeaders.performance.tagline}</p>
                   </div>
