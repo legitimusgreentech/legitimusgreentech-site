@@ -8,21 +8,26 @@ import { FadeIn } from "@/components/animations/fade-in";
 const PRODUCT_COLOR = "var(--color-gold)";
 const PRODUCT_COLOR_HEX = "#aa8e6b";
 
+// Cores do GHG Protocol (Escopo 1 azul, 2 laranja, 3 amarelo) em tons
+// dessaturados e terrosos, harmonizados com a paleta do site.
 const scopes = [
   {
     n: "1",
     title: "Escopo 1 — Emissões Diretas",
     desc: "Fontes próprias da organização: queima de combustíveis, processos industriais, emissões fugitivas (extintores, ar-condicionado), frota própria.",
+    color: "#2d6e8e",
   },
   {
     n: "2",
     title: "Escopo 2 — Energia",
     desc: "Emissões indiretas provenientes da aquisição externa de energia, associada à produção dessa energia que é demandada pela empresa.",
+    color: "#c07a45",
   },
   {
     n: "3",
     title: "Escopo 3 — Cadeia de Valor",
     desc: "Demais emissões indiretas ao longo da cadeia de valor: fornecedores, logística terceirizada, resíduos, viagens a negócio, uso e descarte dos produtos vendidos — tudo que está além do controle direto mas é consequência da atividade da empresa.",
+    color: "#dcc400",
   },
 ];
 
@@ -118,12 +123,15 @@ export function InventarioGeeContent() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {scopes.map((scope, i) => (
               <FadeIn key={scope.n} delay={i * 0.08} className="h-full">
-                <div className="p-6 rounded-2xl bg-ice border border-coal/5 h-full">
+                <div
+                  className="p-6 rounded-2xl bg-ice border border-coal/5 h-full"
+                  style={{ borderTopWidth: "3px", borderTopColor: scope.color }}
+                >
                   <div
                     className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold mb-4"
                     style={{
-                      backgroundColor: `${PRODUCT_COLOR_HEX}15`,
-                      color: PRODUCT_COLOR_HEX,
+                      backgroundColor: `${scope.color}18`,
+                      color: scope.color,
                     }}
                   >
                     Escopo {scope.n}

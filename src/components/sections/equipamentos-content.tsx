@@ -7,7 +7,7 @@ import { Check, ArrowRight, Droplets, Leaf, Zap, ShieldCheck, RefreshCw } from "
 import { FadeIn } from "@/components/animations/fade-in";
 
 const ecoBoxHighlights = [
-  { icon: Droplets, label: "Remove 90 a 95% de óleos e gorduras" },
+  { icon: Droplets, label: "Remove 85 a 95% de óleos e gorduras" },
   { icon: ShieldCheck, label: "Conformidade com CONAMA nº 430" },
   { icon: Zap, label: "Sem adição de produtos químicos" },
   { icon: Leaf, label: "Instalação em rede de efluentes existente" },
@@ -161,7 +161,7 @@ export function EquipamentosContent() {
                     A Eco Box é uma caixa de gordura inteligente fabricada em aço inoxidável AISI 304
                     liga 18.8. Inicia com uma filtragem por cesto gradeador perfurado que separa resíduos
                     sólidos, seguida de um módulo coalescente que acelera a separação do óleo da água —
-                    removendo de <strong className="text-coal/80">90 a 95% de gordura, óleo e resíduos</strong>.
+                    removendo de <strong className="text-coal/80">85 a 95% de gordura, óleo e resíduos</strong>.
                   </p>
                   <p className="mt-3 text-sm text-coal/60 leading-relaxed">
                     É compacta, instala na rede de efluentes existente e dispensa o uso de produtos

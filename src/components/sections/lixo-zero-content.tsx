@@ -367,7 +367,7 @@ export function LixoZeroContent() {
       </section>
 
       {/* Metodologia Global Zero Waste */}
-      <section id="metodologia-global-zero-waste" className="py-24 lg:py-32 bg-ice">
+      <section id="metodologia-global-zero-waste" className="pt-24 lg:pt-32 pb-12 lg:pb-16 bg-ice">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           {/* Header: logo + descrição */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-14">
@@ -425,7 +425,7 @@ export function LixoZeroContent() {
       </section>
 
       {/* O que realizamos — serviços genéricos para as duas metodologias */}
-      <section className="py-24 lg:py-32 bg-ice">
+      <section className="pt-12 lg:pt-16 pb-24 lg:pb-32 bg-ice">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-16">
