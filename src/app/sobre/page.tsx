@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "quem somos",
   ],
   alternates: {
-    canonical: "https://legitimus.greentech/sobre",
+    canonical: "https://legitimusgreentech.com.br/sobre",
   },
 };
 

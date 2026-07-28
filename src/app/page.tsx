@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     title: "Legitimus GreenTech | Sustentabilidade com Inteligência e Tecnologia",
     description:
       "Estruturamos a sustentabilidade empresarial com tecnologia, método e inteligência de dados. Inventário GEE, ESG, Lixo Zero e equipamentos ambientais.",
-    url: "https://legitimus.greentech",
+    url: "https://legitimusgreentech.com.br",
   },
   alternates: {
-    canonical: "https://legitimus.greentech",
+    canonical: "https://legitimusgreentech.com.br",
   },
 };
 

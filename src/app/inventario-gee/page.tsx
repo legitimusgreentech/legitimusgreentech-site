@@ -40,7 +40,7 @@ export const metadata: Metadata = {
       "GHG Protocol, Software de Emissões ou diagnóstico de fontes. Três formas de estruturar seu inventário de emissões com método e rastreabilidade.",
   },
   alternates: {
-    canonical: "https://legitimus.greentech/inventario-gee",
+    canonical: "https://legitimusgreentech.com.br/inventario-gee",
   },
 };
 

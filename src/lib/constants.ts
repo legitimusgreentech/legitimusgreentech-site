@@ -4,7 +4,7 @@ export const BRAND = {
   description:
     "Greentech que estrutura inventários de emissões, Certificação ESG, Certificação Lixo Zero e equipamentos ambientais com tecnologia e gestão via plataforma digital.",
   email: "contato@legitimusgreentech.com.br",
-  url: "https://legitimus.greentech",
+  url: "https://legitimusgreentech.com.br",
   evolutoUrl: "https://legitimusgreentech.evolutto.com.br",
 } as const;
 

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
       "Diagnóstico, indicadores e governança ESG integrados à estratégia do seu negócio. Conforme ABNT PR 2030.",
   },
   alternates: {
-    canonical: "https://legitimus.greentech/esg",
+    canonical: "https://legitimusgreentech.com.br/esg",
   },
 };
 

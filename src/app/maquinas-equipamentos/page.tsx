@@ -30,7 +30,7 @@ export const metadata: Metadata = {
       "Caixa Separadora Eco Box e Composteira Automatizada. Equipamentos que fecham o ciclo da sustentabilidade empresarial.",
   },
   alternates: {
-    canonical: "https://legitimus.greentech/maquinas-equipamentos",
+    canonical: "https://legitimusgreentech.com.br/maquinas-equipamentos",
   },
 };
 

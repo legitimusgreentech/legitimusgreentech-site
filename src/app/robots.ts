@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { BRAND } from "@/lib/constants";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -28,6 +29,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://legitimus.greentech/sitemap.xml",
+    sitemap: `${BRAND.url}/sitemap.xml`,
+    host: BRAND.url,
   };
 }

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
       "Solicite uma proposta ou tire suas dúvidas sobre nossos serviços de sustentabilidade empresarial.",
   },
   alternates: {
-    canonical: "https://legitimus.greentech/contato",
+    canonical: "https://legitimusgreentech.com.br/contato",
   },
 };
 

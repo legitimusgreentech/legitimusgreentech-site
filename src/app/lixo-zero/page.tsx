@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       "Credenciados ILZB desde 2021. Diagnóstico, implementação e auditoria para Certificação Lixo Zero.",
   },
   alternates: {
-    canonical: "https://legitimus.greentech/lixo-zero",
+    canonical: "https://legitimusgreentech.com.br/lixo-zero",
   },
 };
 

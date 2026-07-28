@@ -29,7 +29,7 @@ export { viewport } from "./viewport";
 
 export const metadata: Metadata = {
   manifest: "/manifest.json",
-  metadataBase: new URL("https://legitimus.greentech"),
+  metadataBase: new URL("https://legitimusgreentech.com.br"),
   title: {
     default: "Legitimus GreenTech | Sustentabilidade com Inteligência e Tecnologia",
     template: "%s | Legitimus GreenTech",

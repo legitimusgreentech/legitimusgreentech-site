@@ -29,14 +29,10 @@ export function OrganizationJsonLd() {
       "Instituto Lixo Zero Brasil",
     ],
     slogan: BRAND.tagline,
-    sameAs: [
-      "https://www.linkedin.com/company/legitimus-greentech",
-      "https://www.instagram.com/legitimus.greentech",
-    ],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
-      email: "contato@legitimus.greentech",
+      email: "contato@legitimusgreentech.com.br",
       availableLanguage: "Portuguese",
     },
     hasCredential: [
