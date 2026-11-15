@@ -7,19 +7,20 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 const product = PRODUCTS.find((p) => p.key === "maquinas-equipamentos")!;
 
 export const metadata: Metadata = {
-  title: "Equipamentos Ambientais | Caixa Separadora e Composteiras",
+  title: "Equipamentos Ambientais | Separador de Água e Óleo e Composteiras",
   description:
-    "Equipamentos ambientais que fecham o ciclo da sustentabilidade: Caixa Separadora Eco Box (água e óleo) e Composteira Automatizada. Instalação e suporte técnico.",
+    "Equipamentos ambientais que fecham o ciclo da sustentabilidade: L-Separator (separação de água e óleo) e Composteira Automatizada, com Locação Verde e suporte técnico.",
   keywords: [
     "equipamentos ambientais",
+    "separador de água e óleo",
     "caixa separadora água óleo",
-    "caixa separadora eco box",
+    "caixa de gordura inox",
     "composteira automatizada",
     "composteira industrial",
+    "composteira elétrica",
+    "locação de composteira",
     "reciclagem resíduos orgânicos",
     "gestão de resíduos equipamentos",
-    "tratamento resíduos sólidos",
-    "CONAMA 430",
     "lixo zero equipamentos",
     "economia circular",
     "resíduo orgânico",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Equipamentos Ambientais | Legitimus GreenTech",
     description:
-      "Caixa Separadora Eco Box e Composteira Automatizada. Equipamentos que fecham o ciclo da sustentabilidade empresarial.",
+      "L-Separator e Composteira Automatizada. Equipamentos que fecham o ciclo da sustentabilidade empresarial.",
   },
   alternates: {
     canonical: "https://legitimusgreentech.com.br/maquinas-equipamentos",

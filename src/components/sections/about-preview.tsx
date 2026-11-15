@@ -14,7 +14,7 @@ export function AboutPreview() {
           <FadeIn>
             <div className="relative aspect-[3/2] rounded-2xl overflow-hidden border border-coal/5 shadow-xl shadow-coal/10">
               <Image
-                src="/team.jpeg"
+                src="/team.jpg"
                 alt="Equipe Legitimus GreenTech"
                 fill
                 sizes="(max-width: 1024px) 100vw, 600px"

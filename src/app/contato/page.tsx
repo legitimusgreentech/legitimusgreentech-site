@@ -6,6 +6,7 @@ import { Mail, ArrowLeft, Phone, MessageCircle, MapPin, Send, CheckCircle2 } fro
 import Link from "next/link";
 import { toast } from "sonner";
 import { BRAND } from "@/lib/constants";
+import { SOCIAL_LINKS } from "@/components/ui/social-icons";
 
 function formatPhone(value: string): string {
   const d = value.replace(/\D/g, "").slice(0, 11);
@@ -179,6 +180,27 @@ export default function ContatoPage() {
                     Localização
                   </p>
                   <span className="text-sm text-ice/80">São Paulo, SP — Brasil</span>
+                </div>
+              </div>
+
+              <div className="pt-3">
+                <p className="text-xs text-ice/40 uppercase tracking-wider font-semibold mb-3">
+                  Redes sociais
+                </p>
+                <div className="flex items-center gap-3">
+                  {SOCIAL_LINKS.map((s) => (
+                    <a
+                      key={s.label}
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Legitimus GreenTech no ${s.label}`}
+                      className="inline-flex items-center gap-2 h-10 px-4 rounded-xl bg-ice/10 text-sm font-medium text-ice/80 hover:text-lime hover:bg-ice/15 transition-colors"
+                    >
+                      <s.icon size={18} className="text-lime" />
+                      {s.label}
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>

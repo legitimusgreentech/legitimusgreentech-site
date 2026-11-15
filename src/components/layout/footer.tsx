@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Award, ShieldCheck } from "lucide-react";
 import { BRAND, PRODUCTS, NAV_LINKS } from "@/lib/constants";
+import { SOCIAL_LINKS } from "@/components/ui/social-icons";
 
 export function Footer() {
   return (
@@ -23,6 +24,21 @@ export function Footer() {
             <p className="mt-4 text-sm text-ice/50 leading-relaxed max-w-xs">
               {BRAND.tagline}
             </p>
+            <ul className="mt-6 flex items-center gap-3">
+              {SOCIAL_LINKS.map((s) => (
+                <li key={s.label}>
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Legitimus GreenTech no ${s.label}`}
+                    className="flex w-11 h-11 items-center justify-center rounded-xl border border-ice/15 bg-white/5 text-ice/60 hover:text-lime hover:border-lime/40 transition-colors"
+                  >
+                    <s.icon size={18} />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Produtos */}

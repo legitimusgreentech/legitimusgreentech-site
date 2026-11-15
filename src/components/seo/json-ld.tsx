@@ -29,6 +29,7 @@ export function OrganizationJsonLd() {
       "Instituto Lixo Zero Brasil",
     ],
     slogan: BRAND.tagline,
+    sameAs: [BRAND.social.linkedin, BRAND.social.instagram],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",

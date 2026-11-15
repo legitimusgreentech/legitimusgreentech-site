@@ -6,6 +6,10 @@ export const BRAND = {
   email: "contato@legitimusgreentech.com.br",
   url: "https://legitimusgreentech.com.br",
   evolutoUrl: "https://legitimusgreentech.evolutto.com.br",
+  social: {
+    linkedin: "https://www.linkedin.com/company/legitimusgreentech/",
+    instagram: "https://www.instagram.com/legitimusgreentech",
+  },
 } as const;
 
 export const COLORS = {
@@ -108,9 +112,9 @@ export const PRODUCTS: Product[] = [
     colorName: "silver",
     href: "/maquinas-equipamentos",
     benefits: [
-      "Caixa Separadora Eco Box (água e óleo)",
+      "L-Separator — separação de água e óleo",
       "Composteira Automatizada",
-      "Redução de 90% no volume de resíduos orgânicos",
+      "Redução do volume de resíduos orgânicos",
       "Instalação e suporte técnico",
       "Integração ao programa ambiental",
     ],
